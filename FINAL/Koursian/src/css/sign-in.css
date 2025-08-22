@@ -1,0 +1,277 @@
+/* ---------- Variables ---------- */
+:root {
+    --color-primary: #704FE6;
+    --color-primary-hover: #6146c4;
+    --color-secondary: #FFD25D;
+    --color-text: #25252B;
+    --color-text-muted: rgba(37, 37, 43, 0.6);
+    --color-input-bg: #f4f4f4;
+    --color-input-border: #e6e6e6;
+    --color-white: #fff;
+
+    --fs-hero: 64px;
+    --fs-title: 32px;
+    --fs-heading: 24px;
+    --fs-paragraph: 16px;
+    --fs-input: 16px;
+    --fs-small: 14px;
+
+    --fw-hero: 700;
+    --fw-title: 500;
+    --fw-heading: 500;
+    --fw-paragraph: 500;
+    --fw-input: 300;
+    --fw-small: 200;
+
+    --radius-pill: 50px;
+    --radius-btn: 26px;
+
+    --gap-section: 64px;
+    --gap-block: 24px;
+    --gap-element: 12px;
+}
+
+/* ---------- Reset ---------- */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lufga', sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+/* ---------- Layout ---------- */
+.split {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    background-color: var(--color-primary);
+}
+
+.right {
+    background-color: var(--color-white);
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+    min-width: 550px;
+    gap: var(--gap-section);
+}
+
+/* ---------- Left Section ---------- */
+.header-left {
+    width: 679px;
+    font-weight: 700;
+    font-size: var(--fs-hero);
+    line-height: 84px;
+    letter-spacing: -0.04em;
+    color: var(--color-white);
+    /* position: relative; */
+}
+
+.header-left .img {
+    position: absolute;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.image-1 {
+    width: 297px;
+    height: 297px;
+    left: -83px;
+    top: -101px;
+}
+
+.image-2 {
+    position:relative;
+    width: 145px;
+    height: 27px;
+}
+
+.image-3 {
+    width: 300px;
+    height: 297px;
+    left: 480px;
+    top: 288px;
+}
+
+.image-4 {
+    width: 137px;
+    height: 137px;
+    left: 687px;
+    top: 698px;
+}
+
+.image-5 {
+    width: auto;
+    height: 80px;
+    left: 430px;
+    bottom: 0;
+}
+
+/* ---------- Right Section ---------- */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 500;
+    font-size: var(--fs-heading);
+    line-height: 26px;
+    color: var(--color-text);
+}
+
+.header-logo img {
+    width: 40px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-element);
+}
+
+.header {
+    color: var(--color-text);
+    font-size: var(--fs-title);
+    font-weight: 500;
+    line-height: 52px;
+}
+
+.description {
+    font-size: var(--fs-paragraph);
+    font-weight: var(--fw-paragraph);
+    line-height: 21px;
+    color: var(--color-text);
+    opacity: 0.6;
+}
+
+/* ---------- Form ---------- */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-block);
+    min-width: 550px;
+}
+
+.header-forgot {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-block);
+}
+
+.header-input {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.input-semua {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-block);
+}
+
+.input-email,
+.input-password {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-element);
+}
+
+label {
+    font-size: var(--fs-label);
+    font-weight: var(--fw-paragraph);
+    color: var(--color-text);
+    opacity: 1;
+}
+
+.form-container input {
+    border: 2px solid var(--color-input-bg);
+    height: 20px;
+    border-radius: var(--radius-pill);
+    padding: 20px 24px;
+    background: var(--color-input-bg);
+    transition: all 0.2s;
+    font-size: var(--fs-paragraph);
+    font-weight: var(--fw-input);
+}
+
+.form-container ::placeholder {
+    opacity: 0.8;
+}
+
+.form-container input:focus {
+    background: var(--color-white);
+    border: 2px solid var(--color-primary);
+    outline: none;
+}
+
+/* ---------- Forgot Password ---------- */
+.forgot-password {
+    font-size: var(--fs-paragraph);
+    font-weight: 500;
+    color: var(--color-primary);
+    text-align: right;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: var(--color-primary-hover);
+}
+
+/* ---------- Sign In & Sign Up ---------- */
+.sign-in-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-block);
+}
+
+.sign-in {
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-btn);
+    min-width: 550px;
+    height: 52px;
+    transition: all 0.3s;
+    font-size: var(--fs-paragraph);
+    font-weight: 500;
+}
+
+.sign-in:hover {
+    background: var(--color-primary-hover);
+    cursor: pointer;
+}
+
+.sign-up {
+    font-size: var(--fs-small);
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: var(--color-text-muted);
+}
+
+.sign-up a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+.sign-up a:hover {
+    color: var(--color-primary-hover);
+}
