@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In Page</title>
-    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/root.css">
+    <link rel="stylesheet" href="src/css/sign-up.css">
     <link href="https://fonts.cdnfonts.com/css/lufga" rel="stylesheet">
 </head>
 
@@ -41,15 +42,27 @@
                         </div>
 
                         <div class="input-semua">
-                            <div class="input-email">
+                            <div class="input input-email">
                                 <label for="email">Email Address</label>
                                 <input type="email" placeholder="Enter your email" class="input-form" id="email"
                                     required>
                             </div>
 
-                            <div class="input-password">
+                            <div class="input input-username">
+                                <label for="username">Username</label>
+                                <input type="text" placeholder="Enter your username" class="input-form" id="username"
+                                    required>
+                            </div>
+
+                            <div class="input input-password">
                                 <label for="password">Password</label>
                                 <input type="password" placeholder="Enter your password" id="password"
+                                    class="input-form" required>
+                            </div>
+
+                            <div class="input input-confirmpass">
+                                <label for="confirmpass">Confirm Password</label>
+                                <input type="password" placeholder="Retype your password" id="confirmpass"
                                     class="input-form" required>
                             </div>
                         </div>
