@@ -213,7 +213,8 @@ label {
     border: 2px solid var(--color-primary);
     border-radius: var(--radius-btn);
     min-width: 550px;
-    height: 52px;
+    padding: 20px 24px;
+    /* height: 52px; */
     transition: all 0.3s;
     font-size: var(--fs-paragraph);
     font-weight: 500;
