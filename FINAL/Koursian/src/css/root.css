@@ -1,0 +1,31 @@
+:root {
+    --color-primary: #704FE6;
+    --color-primary-hover: #6146c4;
+    --color-secondary: #FFD25D;
+    --color-text: #25252B;
+    --color-text-muted: rgba(37, 37, 43, 0.6);
+    --color-input-bg: #f4f4f4;
+    --color-input-border: #e6e6e6;
+    --color-white: #fff;
+
+    --fs-hero: 64px;
+    --fs-title: 32px;
+    --fs-heading: 24px;
+    --fs-paragraph: 16px;
+    --fs-input: 16px;
+    --fs-small: 14px;
+
+    --fw-hero: 700;
+    --fw-title: 500;
+    --fw-heading: 500;
+    --fw-paragraph: 500;
+    --fw-input: 300;
+    --fw-small: 200;
+
+    --radius-pill: 50px;
+    --radius-btn: 26px;
+
+    --gap-section: 64px;
+    --gap-block: 24px;
+    --gap-element: 12px;
+}
