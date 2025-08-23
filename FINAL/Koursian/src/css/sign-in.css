@@ -139,13 +139,18 @@ body {
 .header-forgot {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-xl);
+
+    gap: var(--gap-md);
+}
+
+.forgot-password {
+    text-align: right;
 }
 
 .header-input {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-xl);
+    gap: var(--gap-lg);
 }
 
 .input-semua {
@@ -330,7 +335,7 @@ label {
 }
 
 /* ---------- Sign In & Sign Up ---------- */
-.sign-up-container {
+.sign-in-container {
     display: flex;
     flex-direction: column;
     gap: var(--gap-md);
