@@ -19,12 +19,12 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Check if user is already logged in
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    window.location.href = "index.html";
-  }
-});
+// // Check if user is already logged in
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     window.location.href = "index.html";
+//   }
+// });
 
 
 // Get form elements

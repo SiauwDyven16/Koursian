@@ -257,16 +257,18 @@ label {
 }
 
 /* Loading animation untuk checking username */
-.username-status.username-checking::after {
+.username-status.username-checking::before {
     content: '';
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 7px;
+    height: 7px;
     border: 2px solid var(--color-secondary);
     border-radius: 50%;
     border-top-color: transparent;
     animation: spin 1s linear infinite;
-    margin-left: 8px;
+    vertical-align: middle;
+    margin-bottom: 5.5px;
+    margin-right: 4px;
 }
 
 @keyframes spin {

@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, runTransaction } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAD9PuaSWK6-rK1B0VKIrY1dgQsK6CevNk",
@@ -15,7 +14,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
@@ -32,7 +30,7 @@ const form = document.getElementById('sign-upForm');
 const usernameInput = document.getElementById('username');
 const usernameStatus = document.getElementById('usernameStatus');
 
-// Username validation
+// Username validation state
 let usernameCheckTimeout;
 let isUsernameValid = false;
 let isUsernameAvailable = false;
@@ -56,14 +54,12 @@ async function checkUsernameAvailability(username) {
 
 // Function to show feedback with smooth transition
 function showFeedback(message, className) {
-  // Smooth transition tanpa mengubah layout
   usernameStatus.style.opacity = '0';
   
   setTimeout(() => {
     usernameStatus.textContent = message;
     usernameStatus.className = `username-status ${className} show`;
     
-    // Smooth fade in
     setTimeout(() => {
       usernameStatus.style.opacity = '1';
     }, 10);
@@ -79,7 +75,7 @@ function hideFeedback() {
   }, 150);
 }
 
-// Username input event handler
+// Username input event handler with real-time validation
 usernameInput.addEventListener('input', function() {
   const username = this.value.trim();
   
@@ -101,7 +97,7 @@ usernameInput.addEventListener('input', function() {
   
   // Check format first
   if (!isValidUsernameFormat(username)) {
-    showFeedback('Invalid format. Use only letters, numbers, and underscores.', 'username-invalid');
+    showFeedback('3-20 characters, letters & numbers only', 'username-invalid');
     usernameInput.classList.add('invalid');
     updateSubmitButton();
     return;
@@ -110,33 +106,36 @@ usernameInput.addEventListener('input', function() {
   isUsernameValid = true;
   
   // Show checking status with loading animation
-  showFeedback('Checking username...', 'username-checking');
+  showFeedback('Checking availability...', 'username-checking');
   
-  // username check
+  // Debounced username availability check
   usernameCheckTimeout = setTimeout(async () => {
     try {
       const available = await checkUsernameAvailability(username);
-      
+      // 'Username available', 'username-available'
       if (available) {
-        showFeedback('Username available!', 'username-available');
+        showFeedback('Username available', 'username-available');
+        usernameInput.classList.remove('invalid');
         usernameInput.classList.add('valid');
         isUsernameAvailable = true;
       } else {
-        showFeedback('Username already taken.', 'username-taken');
+        showFeedback('Username already taken', 'username-taken');
+        usernameInput.classList.remove('valid');
         usernameInput.classList.add('invalid');
         isUsernameAvailable = false;
       }
     } catch (error) {
-      showFeedback('Error checking username.', 'username-invalid');
+      showFeedback('Error checking username', 'username-invalid');
+      usernameInput.classList.remove('valid');
       usernameInput.classList.add('invalid');
       isUsernameAvailable = false;
     }
     
     updateSubmitButton();
-  }, 500); // Increased delay for better UX
+  }, 800); // Increased delay for better UX
 });
 
-// Add focus/blur effects for better UX
+// Focus/blur effects for better UX
 usernameInput.addEventListener('focus', function() {
   if (this.value.trim().length > 0) {
     usernameStatus.classList.add('show');
@@ -153,9 +152,16 @@ usernameInput.addEventListener('blur', function() {
 function updateSubmitButton() {
   const canSubmit = isUsernameValid && isUsernameAvailable;
   submit.disabled = !canSubmit;
+  
+  if (canSubmit) {
+    submit.style.opacity = '1';
+    submit.style.cursor = 'pointer';
+  } else {
+    submit.style.cursor = 'not-allowed';
+  }
 }
 
-// Form submission handler
+// Form submission handler with complete validation
 form.addEventListener('submit', async function (event) {
   event.preventDefault();
 
@@ -164,94 +170,181 @@ form.addEventListener('submit', async function (event) {
   const password = document.getElementById('password').value;
   const confirmPassword = document.getElementById('confirmpass').value;
 
-  // Validation
+  // Comprehensive validation
   if (!email || !username || !password || !confirmPassword) {
-    alert("Semua field harus diisi!");
+    alert("All fields are required!");
     return;
   }
 
   if (!isUsernameValid || !isUsernameAvailable) {
-    alert("Username tidak valid atau sudah digunakan!");
+    alert("Please choose a valid and available username!");
     return;
   }
 
   if (password !== confirmPassword) {
-    alert("Password dan konfirmasi password tidak cocok!");
+    alert("Passwords don't match!");
     return;
   }
 
   if (password.length < 6) {
-    alert("Password minimal 6 karakter!");
+    alert("Password must be at least 6 characters!");
     return;
   }
 
-  // Disable submit button during registration
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address!");
+    return;
+  }
+
+  // Disable submit button and show loading
   submit.disabled = true;
   submit.textContent = 'Creating Account...';
+  submit.style.opacity = '0.6';
 
   try {
-    // Use transaction to ensure username uniqueness
-    await runTransaction(db, async (transaction) => {
-      const usernameRef = doc(db, "usernames", username.toLowerCase());
-      const usernameDoc = await transaction.get(usernameRef);
-      
-      if (usernameDoc.exists()) {
-        throw new Error("Username sudah digunakan oleh user lain!");
-      }
+    // Final username availability check
+    console.log("Final username check...");
+    const isStillAvailable = await checkUsernameAvailability(username);
+    if (!isStillAvailable) {
+      throw new Error("Username was taken by another user during registration!");
+    }
 
-      // Create user account
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+    // Create user account
+    console.log("Creating Firebase Auth user...");
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    console.log("✅ User account created:", user.uid);
 
-      // Set username document
-      transaction.set(usernameRef, {
-        uid: user.uid,
-        createdAt: new Date()
-      });
-
-      // Set user document
-      const userRef = doc(db, "users", user.uid);
-      transaction.set(userRef, {
-        email: email,
-        username: username,
-        displayName: username, // You can modify this later
-        createdAt: new Date(),
-        uid: user.uid
-      });
+    // Save user data to Firestore
+    console.log("Saving user data...");
+    
+    // Save username document (for uniqueness tracking)
+    await setDoc(doc(db, "usernames", username.toLowerCase()), {
+      uid: user.uid,
+      username: username, // Store original case
+      createdAt: new Date(),
+      updatedAt: new Date()
     });
+    console.log("✅ Username document saved");
 
-    alert("Berhasil mendaftar! Silakan login.");
+    // Save user profile document
+    await setDoc(doc(db, "users", user.uid), {
+      uid: user.uid,
+      email: email,
+      username: username,
+      displayName: username, // Can be changed later
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      profileComplete: false, // For future profile completion
+      isActive: true
+    });
+    console.log("✅ User profile document saved");
+
+    // Success notification
+    alert("🎉 Account created successfully! Please sign in to continue.");
+    
+    // Redirect to sign in page
     window.location.href = "sign-in.html";
 
   } catch (error) {
-    const errorCode = error.code;
-    let errorMessage = "Gagal mendaftar! ";
-
-    switch (errorCode) {
+    console.error("Registration error:", error);
+    
+    let errorMessage = "Failed to create account! ";
+    
+    switch (error.code) {
       case 'auth/email-already-in-use':
-        errorMessage += "Email sudah terdaftar.";
+        errorMessage += "This email is already registered.";
         break;
       case 'auth/invalid-email':
-        errorMessage += "Format email tidak valid.";
+        errorMessage += "Invalid email format.";
         break;
       case 'auth/weak-password':
-        errorMessage += "Password terlalu lemah.";
+        errorMessage += "Password is too weak.";
         break;
       case 'auth/network-request-failed':
-        errorMessage += "Gagal terhubung ke server.";
+        errorMessage += "Network error. Please check your connection.";
+        break;
+      case 'auth/too-many-requests':
+        errorMessage += "Too many attempts. Please try again later.";
         break;
       default:
         errorMessage += error.message;
     }
 
     alert(errorMessage);
-    console.error("Registration error:", error);
   } finally {
     // Re-enable submit button
     submit.disabled = false;
     submit.textContent = 'Sign Up';
+    updateSubmitButton();
   }
 });
 
-// Initial submit button state
+// Password confirmation validation
+document.getElementById('confirmpass').addEventListener('input', function() {
+  const password = document.getElementById('password').value;
+  const confirmPassword = this.value;
+  
+  if (confirmPassword && password !== confirmPassword) {
+    this.style.borderColor = '#ef4444';
+  } else if (confirmPassword && password === confirmPassword) {
+    this.style.borderColor = '#22c55e';
+  } else {
+    this.style.borderColor = '';
+  }
+});
+
+// Initialize submit button state
 updateSubmitButton();
+
+// Test function (remove this in production)
+window.testMinimalSignup = async function() {
+  try {
+    console.log("Starting minimal signup test...");
+    
+    const testEmail = `test${Date.now()}@example.com`;
+    const testPassword = "password123";
+    const testUsername = `user${Date.now()}`;
+    
+    console.log("Step 1: Testing basic Firestore write (before auth)...");
+    try {
+      await setDoc(doc(db, "test", "testdoc"), {
+        message: "Hello World",
+        timestamp: new Date()
+      });
+      console.log("✅ Basic Firestore write successful");
+    } catch (error) {
+      console.error("❌ Basic Firestore write failed:", error);
+      return;
+    }
+    
+    console.log("Step 2: Creating user account...");
+    const userCredential = await createUserWithEmailAndPassword(auth, testEmail, testPassword);
+    const user = userCredential.user;
+    console.log("✅ User account created:", user.uid);
+    
+    console.log("Step 3: Writing user data to Firestore...");
+    await setDoc(doc(db, "users", user.uid), {
+      email: testEmail,
+      username: testUsername,
+      createdAt: new Date()
+    });
+    console.log("✅ User data written to Firestore");
+    
+    console.log("Step 4: Writing username data to Firestore...");
+    await setDoc(doc(db, "usernames", testUsername.toLowerCase()), {
+      uid: user.uid,
+      createdAt: new Date()
+    });
+    console.log("✅ Username data written to Firestore");
+    
+    console.log("🎉 All tests passed!");
+    alert("Test successful! Check console for details.");
+    
+  } catch (error) {
+    console.error("❌ Test failed at step:", error);
+    alert(`Test failed: ${error.message}`);
+  }
+};
