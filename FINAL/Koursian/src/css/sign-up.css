@@ -29,7 +29,7 @@ body {
     flex-direction: column;
     max-width: 550px;
     min-width: 550px;
-    gap: var(--gap-section);
+    gap: var(--gap-xl);
 }
 
 /* ---------- Left Section ---------- */
@@ -104,7 +104,7 @@ body {
 .header-container {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-element);
+    gap: var(--gap-sm);
 }
 
 .header {
@@ -126,32 +126,32 @@ body {
 .form-container {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-block);
+    gap: var(--gap-md);
     min-width: 550px;
 }
 
 .header-password {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-section);
+    gap: var(--gap-xl);
 }
 
 .header-forgot {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-section);
+    gap: var(--gap-xl);
 }
 
 .header-input {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: var(--gap-xl);
 }
 
 .input-semua {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-block);
+    gap: var(--gap-md);
 }
 
 /* Memastikan semua input field memiliki spacing yang konsisten */
@@ -160,20 +160,20 @@ body {
 .input-confirmpass {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-element);
+    gap: var(--gap-sm);
 }
 
 .input {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-element);
+    gap: var(--gap-sm);
     position: relative;
 }
 
 .input-username {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-element);
+    gap: var(--gap-sm);
 }
 
 .input-username .label-container {
@@ -199,7 +199,7 @@ label {
     border-radius: var(--radius-pill);
     padding: 20px 24px;
     background: var(--color-input-bg);
-    transition: all 0.2s;
+    transition: var(--transition);
     font-size: var(--fs-paragraph);
     font-weight: var(--fw-input);
 }
@@ -223,18 +223,13 @@ label {
 
 /* Username status styling */
 .username-status {
-    font-size: 12px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-paragraph);
+    transition: var(--transition);
     opacity: 0;
     min-width: 300px;
-    max-width: 350px;
-    overflow: hidden;
     position: relative;
     line-height: 1.4;
-    border-radius: 6px;
-    border-left: 3px solid transparent;
-    text-align: left;
 }
 
 .username-status.show {
@@ -242,22 +237,22 @@ label {
 }
 
 .username-status.username-available {
-    color: #22c55e;
+    color: var(--color-success);
     min-width: auto;
 }
 
 .username-status.username-taken {
-    color: #ef4444;
+    color: var(--color-warning);
     min-width: auto;
 }
 
 .username-status.username-invalid {
-    color: #ef4444;
+    color: var(--color-warning);
     min-width: auto;
 }
 
 .username-status.username-checking {
-    color: #f59e0b;
+    color: var(--color-secondary);
     min-width: auto;
 }
 
@@ -267,7 +262,7 @@ label {
     display: inline-block;
     width: 12px;
     height: 12px;
-    border: 2px solid #f59e0b;
+    border: 2px solid var(--color-secondary);
     border-radius: 50%;
     border-top-color: transparent;
     animation: spin 1s linear infinite;
@@ -311,7 +306,7 @@ label {
 
 /* Input validation styles dengan transition smooth */
 .input-form {
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .input-form.valid {
@@ -335,13 +330,13 @@ label {
 }
 
 /* ---------- Sign In & Sign Up ---------- */
-.sign-in-container {
+.sign-up-container {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-block);
+    gap: var(--gap-md);
 }
 
-.sign-in {
+.sign-up {
     color: var(--color-white);
     display: flex;
     align-items: center;
@@ -351,35 +346,35 @@ label {
     border-radius: var(--radius-btn);
     min-width: 550px;
     height: 52px;
-    transition: all 0.3s;
+    transition: var(--transition);
     font-size: var(--fs-paragraph);
-    font-weight: 500;
+    font-weight: var(--fw-paragraph);
 }
 
-.sign-in:hover {
+.sign-up:hover {
     background: var(--color-primary-hover);
     cursor: pointer;
 }
 
-.sign-in:disabled {
-    background: #9ca3af;
-    border-color: #9ca3af;
+.sign-up:disabled {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
     cursor: not-allowed;
 }
 
-.sign-up {
-    font-size: var(--fs-small);
-    font-weight: 500;
+.sign-in {
+    font-size: var(--fs-paragraph);
+    font-weight: var(--fw-paragraph);
     text-align: center;
     letter-spacing: -0.04em;
     color: var(--color-text-muted);
 }
 
-.sign-up a {
+.sign-in a {
     text-decoration: none;
     color: var(--color-primary);
 }
 
-.sign-up a:hover {
+.sign-in a:hover {
     color: var(--color-primary-hover);
 }
