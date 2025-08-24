@@ -145,7 +145,7 @@ body {
 .header-input {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-xl);
+    gap: var(--gap-lg);
 }
 
 .input-semua {
