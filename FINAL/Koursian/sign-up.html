@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,61 +20,71 @@
                 <img src="src/assets/icon/yellow_wave.png" alt="" class="image-2">
                 <p>Unlock Your Path <br> To Achieve Your <span style="color: #FFD25D;">Dream</span></p>
             </div>
-
         </div>
     </div>
-    
 
     <div class="split right">
         <div class="center">
             <div class="header-logo">
-                <img src="src/assets/icon/logo.svg" alt="logo">
+                <img src="src/assets/icon/Logo.svg" alt="logo">
                 <span>Koursian</span>
             </div>
-            <form class="form-container" id="sign-upForm">
-                <div class="header-forgot">
-                    <div class="header-input">
-                        <div class="header-container">
-                            <h2 class="header">Welcome to Koursian</h2>
-                            <p class="description">Let's Continue Your Journey, Make Your Dream Come True</p>
-
-                        </div>
-
-                        <div class="input-semua">
-                            <div class="input input-email">
-                                <label for="email">Email Address</label>
-                                <input type="email" placeholder="Enter your email" class="input-form" id="email"
-                                    required>
+            <div class="header-password">
+                <form class="form-container" id="sign-upForm">
+                    <div class="header-forgot">
+                        <div class="header-input">
+                            <div class="header-container">
+                                <h2 class="header">Welcome to Koursian</h2>
+                                <p class="description">Let's Continue Your Journey, Make Your Dream Come True</p>
                             </div>
 
-                            <div class="input input-username">
-                                <label for="username">Username</label>
-                                <input type="text" placeholder="Enter your username" class="input-form" id="username"
-                                    required>
-                            </div>
+                            <div class="input-semua">
+                                <div class="input input-email">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" placeholder="Enter your email" class="input-form" id="email"
+                                        required>
+                                </div>
 
-                            <div class="input input-password">
-                                <label for="password">Password</label>
-                                <input type="password" placeholder="Enter your password" id="password"
-                                    class="input-form" required>
-                            </div>
+                                <div class="input input-username">
+                                    <div class="label-container">
+                                        <label for="username">Username</label>
+                                        <div class="username-status" id="usernameStatus"></div>
+                                    </div>
+                                    <input type="text" placeholder="Enter your username" class="input-form"
+                                        id="username" required minlength="3" maxlength="20" pattern="^[a-zA-Z0-9_]+$">
+                                </div>
 
-                            <div class="input input-confirmpass">
-                                <label for="confirmpass">Confirm Password</label>
-                                <input type="password" placeholder="Retype your password" id="confirmpass"
-                                    class="input-form" required>
+                                <div class="input input-password">
+                                    <label for="password">Password</label>
+                                    <input type="password" placeholder="Enter your password" id="password"
+                                        class="input-form" required minlength="6">
+                                </div>
+                                <div class="input input-confirmpass">
+                                    <label for="confirmpass">Confirm Password</label>
+                                    <input type="password" placeholder="Retype your password" id="confirmpass"
+                                        class="input-form" required>
+                                </div>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
             </form>
             <div class="sign-up-container">
                 <button type="submit" id="submit" class="sign-up">Sign Up</button>
+=======
+>>>>>>> greg
             </div>
+            <div class="sign-up-container">
+                <button type="submit" id="submit" class="sign-up">Sign Up</button>
+                <p class="sign-in">Already have an account? <span style="color:#704FE6;"><a href="sign-in.html">Sign
+                            In</a></span></p>
+            </div>
+            </form>
         </div>
     </div>
 
-    <script src="src/js/script.js"></script>
+    <script type="module" src="src/js/sign-up.js"></script>
 </body>
 
 </html>

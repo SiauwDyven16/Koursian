@@ -26,11 +26,13 @@
     </div>
 
     <div class="split right">
+        <div class="header-signIn">
         <div class="center">
             <div class="header-logo">
-                <img src="src/assets/icon/logo.svg" alt="logo">
+                <img src="src/assets/icon/Logo.svg" alt="logo">
                 <span>Koursian</span>
             </div>
+            <div class="header-forgot2">
             <form class="form-container" id="loginForm">
                 <div class="header-forgot">
                     <div class="header-input">
@@ -54,18 +56,19 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="forgot-password">Forgot Password</a>
                 </div>
+                    <a href="#" class="forgot-password">Forgot Password</a>
+                
+                </div>
+
+                    <button type="submit" id="submit" class="sign-in">Sign In</button>
+                </div>
+                    <p class="sign-up">Don't have an account? <span style="color:#704FE6;"><a href="sign-up.html">Sign
+                                Up</a></span></p>
             </form>
-            <div class="sign-in-container">
-                <button type="submit" id="submit" class="sign-in">Sign In</button>
-                <p class="sign-up">Don't have an account? <span style="color:#704FE6;"><a href="register.html">Sign
-                            Up</a></span></p>
-            </div>
         </div>
     </div>
-
-    <script src="src/js/script.js"></script>
+    <script type="module" src="src/js/sign-in.js"></script>
 </body>
 
 </html>

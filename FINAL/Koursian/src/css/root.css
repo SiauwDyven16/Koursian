@@ -2,6 +2,8 @@
     --color-primary: #704FE6;
     --color-primary-hover: #6146c4;
     --color-secondary: #FFD25D;
+    --color-warning: #ef4444;
+    --color-success: #22c55e;
     --color-text: #25252B;
     --color-text-muted: rgba(37, 37, 43, 0.6);
     --color-input-bg: #f4f4f4;
@@ -25,7 +27,10 @@
     --radius-pill: 50px;
     --radius-btn: 26px;
 
-    --gap-section: 64px;
-    --gap-block: 24px;
-    --gap-element: 12px;
+    --gap-xl: 64px;
+    --gap-lg: 48px;
+    --gap-md: 24px;
+    --gap-sm: 12px;
+
+    --transition: all 0.3s ease;
 }

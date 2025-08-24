@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAD9PuaSWK6-rK1B0VKIrY1dgQsK6CevNk",
@@ -15,74 +14,78 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Check if user is already logged in
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    window.location.href = "index.html";
-  }
-});
+// // Check if user is already logged in
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     window.location.href = "index.html";
+//   }
+// });
 
 // Get form elements
 const submit = document.getElementById('submit');
-const form = document.getElementById('sign-upForm');
+const form = document.getElementById('loginForm');
 
-
+// Form submission handler
 form.addEventListener('submit', async function (event) {
   event.preventDefault();
-
+  
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirmPassword').value;
 
   // Validation
-  if (!email || !password || !confirmPassword) {
-    alert("Semua field harus diisi!");
+  if (!email || !password) {
+    alert("Email dan password harus diisi!");
     return;
   }
 
-
-  if (password !== confirmPassword) {
-    alert("Password dan konfirmasi password tidak cocok!");
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Format email tidak valid!");
     return;
   }
 
-  if (password.length < 6) {
-    alert("Password minimal 6 karakter!");
-    return;
-  }
+  // Disable submit button and show loading
+  submit.disabled = true;
+  submit.textContent = 'Signing In...';
 
   try {
-    // Create user account
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    // Sign in user
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Save user data to Firestore
-    await setDoc(doc(db, "users", user.uid), {
-      email: email,
-      createdAt: new Date(),
-      uid: user.uid
-    });
+    // Get user data from Firestore
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+    
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      console.log("User logged in:", userData.username);
+    }
 
-    alert("Berhasil mendaftar! Silakan login.");
-    window.location.href = "sign-in.html";
+    // Redirect to main page
+    window.location.href = "index.html";
 
   } catch (error) {
+    console.error("Login error:", error);
+    
     const errorCode = error.code;
-    let errorMessage = "Gagal mendaftar! ";
+    let errorMessage = "Gagal masuk! ";
 
     switch (errorCode) {
-      case 'auth/email-already-in-use':
-        errorMessage += "Email sudah terdaftar.";
+      case 'auth/user-not-found':
+        errorMessage += "Email tidak terdaftar.";
+        break;
+      case 'auth/wrong-password':
+        errorMessage += "Password salah.";
         break;
       case 'auth/invalid-email':
         errorMessage += "Format email tidak valid.";
         break;
-      case 'auth/weak-password':
-        errorMessage += "Password terlalu lemah.";
+      case 'auth/too-many-requests':
+        errorMessage += "Terlalu banyak percobaan login. Silakan coba lagi nanti.";
         break;
       case 'auth/network-request-failed':
         errorMessage += "Gagal terhubung ke server.";
@@ -92,6 +95,10 @@ form.addEventListener('submit', async function (event) {
     }
 
     alert(errorMessage);
-    console.error("Registration error:", error);
+  } finally {
+    // Re-enable submit button
+    submit.disabled = false;
+    submit.textContent = 'Sign In';
+    submit.style.opacity = '1';
   }
 });
