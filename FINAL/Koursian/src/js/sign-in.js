@@ -1,5 +1,4 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -15,7 +14,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
@@ -26,11 +24,11 @@ const db = getFirestore(app);
 //   }
 // });
 
-
 // Get form elements
 const submit = document.getElementById('submit');
 const form = document.getElementById('loginForm');
 
+// Form submission handler
 form.addEventListener('submit', async function (event) {
   event.preventDefault();
   
@@ -43,11 +41,18 @@ form.addEventListener('submit', async function (event) {
     return;
   }
 
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Format email tidak valid!");
+    return;
+  }
+
+  // Disable submit button and show loading
+  submit.disabled = true;
+  submit.textContent = 'Signing In...';
+
   try {
-    // Show loading state
-    submit.disabled = true;
-    submit.textContent = 'Masuk...';
-    
     // Sign in user
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
@@ -64,9 +69,7 @@ form.addEventListener('submit', async function (event) {
     window.location.href = "index.html";
 
   } catch (error) {
-    // Reset button state
-    submit.disabled = false;
-    submit.textContent = 'Sign In';
+    console.error("Login error:", error);
     
     const errorCode = error.code;
     let errorMessage = "Gagal masuk! ";
@@ -92,6 +95,10 @@ form.addEventListener('submit', async function (event) {
     }
 
     alert(errorMessage);
-    console.error("Login error:", error);
+  } finally {
+    // Re-enable submit button
+    submit.disabled = false;
+    submit.textContent = 'Sign In';
+    submit.style.opacity = '1';
   }
 });

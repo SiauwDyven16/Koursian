@@ -243,10 +243,10 @@ form.addEventListener('submit', async function (event) {
     console.log("✅ User profile document saved");
 
     // Success notification
-    alert("🎉 Account created successfully! Please sign in to continue.");
+    alert("🎉 Account created successfully!");
     
     // Redirect to sign in page
-    window.location.href = "sign-in.html";
+    window.location.href = "index.html";
 
   } catch (error) {
     console.error("Registration error:", error);
