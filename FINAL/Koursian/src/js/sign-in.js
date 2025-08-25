@@ -51,6 +51,7 @@ form.addEventListener('submit', async function (event) {
   // Disable submit button and show loading
   submit.disabled = true;
   submit.textContent = 'Signing In...';
+  submit.style.opacity = '0.6';
 
   try {
     // Sign in user
