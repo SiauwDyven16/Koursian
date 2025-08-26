@@ -1,0 +1,428 @@
+/* Universal Anjay */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    transition: FadeIn 3s;
+}
+
+@keyframes FadeIn{
+    0% {
+        opacity: 0%;
+    }
+    50% {
+        opacity: 50%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+/* ⇩⇩ Ini font dari figmanya yah ⇩⇩ */
+@font-face {
+    font-family: 'LufgSemiBold';
+    src: url('src/assets/font/LufgaSemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LufgaMedium';
+    src: url('src/assets/font/LufgaMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LufgaBold';
+    src: url('src/assets/font/LufgaBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧ */
+
+
+/*kode apa nih guys!!!!!!!!*/
+@media only screen and (max-width: 1920px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+@media only screen and (max-width: 1028px) {
+  body {
+    background-color: lightseagreen;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: lightgoldenrodyellow;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    background-color: lightslategray;
+  }
+}
+
+
+
+body {
+    display: flex;
+    background-color: #fafafa;
+}
+
+.search-bar input{
+    align-items: center;
+    justify-content: center;
+}
+
+.input-icon{
+    background-color: rgba(37, 37, 43, 5%);
+    border-radius: 50px;
+}
+
+.input-icon img{
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.tengah {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #ffffff;
+    color: rgb(84, 84, 84);
+    padding: 20px;
+    height: auto;
+    box-shadow: 0px 0px 1px;
+}
+
+.sidebar ul li{
+    padding: 20px;
+    transition: ease 0.3s;
+    font-family: 'LufgaMedium';
+}
+
+.sidebar ul li:hover {
+    cursor: pointer;
+    color: #6146c4;
+    background-color: #DEC8FE;
+    border-radius: 50px;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    box-shadow: 0px 0px 0px 0px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+header h2 {
+    color: #333;
+    font-size: 32px;
+    font-family: 'LufgaSemiBold', Arial, sans-serif;
+}
+
+header input {
+    padding: 15px;
+    border: 0px;
+    width: 530px;
+    height: 53px;
+    border-radius: 50px;
+    font-size: 16px;
+    background-image: url('assets/search-icon.png');
+    transition: ease-in-out 0.3s;
+    background-color: rgba(37, 37, 43, 0%);
+}
+
+header input::placeholder {
+    color: #a2a2a2;
+}
+ header input:focus {
+    outline: none;
+    border-color: #FFD25D;
+ }
+
+
+.banners {
+    margin: 20px 0;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    
+}
+
+.banner-promo {
+    width: 775px;
+    height: 200px;
+    background-color: #704FE6;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    flex: 1 ;
+
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;  
+    align-items: center;      
+    text-align: center; 
+}
+
+.banner-promo p{
+    text-align: center;
+    margin-top: 5%;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'LufgaSemiBold', Arial, sans-serif;
+
+}
+
+.banner-main {
+    width: 775px;
+    height: 200px;
+    background-color: #FFD25D;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    flex: 1 ;
+
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;  
+    align-items: center;      
+    text-align: center;       
+      
+}
+
+.banner-main p {
+    text-align: center;
+    margin-top: 5%;
+    position: relative;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'LufgaSemiBold', Arial, sans-serif;
+}
+
+.banner-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.text1 h2{
+    font-weight: bold;
+    font-size: 40px;
+    font-family: 'LufgaSemiBold', Arial, sans-serif;
+
+}
+
+.categories {
+    display: flex;
+    margin-bottom: 20px;
+    float: bottom;
+    padding-bottom: 20px;
+}
+
+.categories button {
+    flex: 1;
+    padding: 15px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.categories button:hover{
+    scale: 1.05;
+
+}
+
+.categories .a01, .categories .a04 {
+    background-color: #704FE6;
+}
+
+.categories .a02, .categories .a05 {
+    background-color: #DEC8FE;
+}
+
+.categories .a03, .categories .a06 {
+    background-color: #FFD25D;
+}
+
+.categories .ao1 img{
+    width: auto;    
+    height: 40px;
+}
+
+.bootcamps, .recommended {
+    margin-bottom: 20px;
+    border-spacing: 10px;
+}
+
+.bootcamp-card {
+    background-color: white;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 245px;
+    height: 238px;
+    display: table-cell;
+    padding: 15px;
+    font-family: 'LufgaMedium';
+    transition: ease-in-out 0.3s;
+    
+}
+
+.bootcamp-card .bootcamp-browse {
+    font-family: 'LufgaMedium';
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.bootcamp-card:hover {
+    background-color: #DEC8FE ;
+    color: #6146c4;
+    cursor: pointer;
+}
+
+.bootcamp-card .bootcamp-browse img{
+    align-items: center;
+    height: 40px;
+    width: 40px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.logo1, .logo2, .logo3{
+    display: flex;
+    gap: 10px;
+}
+
+.text {
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    font-family: 'LufgaMedium';
+    font-weight: lighter;
+
+}
+
+.logo1 img{
+    border-radius: 100%;
+    background-color: #DEC8FE;
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+}
+
+.logo2 img{
+    border-radius: 100%;
+    background-color: #704FE6;
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+}
+
+.logo3 img{
+    border-radius: 100%;
+    background-color: #FFF0CC;
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+}
+
+.icon img{
+    width: 26.67px;
+    height:  26.67px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.brand h3{
+    font-size: 24px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+     font-family: 'LufgaMedium';
+}
+
+
+.search-icons img{
+    gap: 20px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+}
+
+
