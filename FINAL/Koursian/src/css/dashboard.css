@@ -21,22 +21,22 @@
 
 /* ⇩⇩ Ini font dari figmanya yah ⇩⇩ */
 @font-face {
-    font-family: 'LufgSemiBold';
-    src: url('src/assets/font/LufgaSemiBold.ttf') format('truetype');
+    font-family: 'LufgaSemiBold';
+    src: url('src\assets\font\LufgaSemiBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'LufgaMedium';
-    src: url('src/assets/font/LufgaMedium.ttf') format('truetype');
+    src: url('src\assets\font\LufgaMedium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'LufgaBold';
-    src: url('src/assets/font/LufgaBold.ttf') format('truetype');
+    src: url('src\assets\font\LufgaBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -82,6 +82,8 @@ body {
     background-color: #fafafa;
 }
 
+
+/* NAVBAR */
 .search-bar input{
     align-items: center;
     justify-content: center;
@@ -103,6 +105,16 @@ body {
     margin-top: 20px;
 }
 
+.search-icons img{
+    gap: 20px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+}
+
+
+
+/* SIDEBAR */
 .sidebar {
     width: 300px;
     background-color: #ffffff;
@@ -148,6 +160,8 @@ body {
     padding: 20px;
 }
 
+
+/* NAVBAR */
 header {
     justify-content: space-between;
     align-items: center;
@@ -184,6 +198,7 @@ header input::placeholder {
  }
 
 
+ /* BANNER */
 .banners {
     margin: 20px 0;
     color: white;
@@ -262,6 +277,8 @@ header input::placeholder {
 
 }
 
+
+/* CLASS */
 .categories {
     display: flex;
     margin-bottom: 20px;
@@ -304,6 +321,47 @@ header input::placeholder {
     height: 40px;
 }
 
+.logo1, .logo2, .logo3{
+    display: flex;
+    gap: 10px;
+}
+
+.text {
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    font-family: 'LufgaMedium';
+    font-weight: lighter;
+
+}
+
+.logo1 img{
+    border-radius: 100%;
+    background-color: #DEC8FE;
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+}
+
+.logo2 img{
+    border-radius: 100%;
+    background-color: #704FE6;
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+}
+
+.logo3 img{
+    border-radius: 100%;
+    background-color: #FFF0CC;
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+}
+
+
+
+/* CONTENT-CARD */
 .bootcamps, .recommended {
     margin-bottom: 20px;
     border-spacing: 10px;
@@ -345,56 +403,12 @@ header input::placeholder {
 h3 {
     margin-bottom: 10px;
 }
-.card {
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
+/* BELUM-RAPI */
 
-.card:active {
-  transform: scale(0.98);
-}
 
-.logo1, .logo2, .logo3{
-    display: flex;
-    gap: 10px;
-}
 
-.text {
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    font-family: 'LufgaMedium';
-    font-weight: lighter;
 
-}
-
-.logo1 img{
-    border-radius: 100%;
-    background-color: #DEC8FE;
-    width: 30px;
-    height: 30px;
-    gap: 10px;
-}
-
-.logo2 img{
-    border-radius: 100%;
-    background-color: #704FE6;
-    width: 30px;
-    height: 30px;
-    gap: 10px;
-}
-
-.logo3 img{
-    border-radius: 100%;
-    background-color: #FFF0CC;
-    width: 30px;
-    height: 30px;
-    gap: 10px;
-}
 
 .icon img{
     width: 26.67px;
@@ -418,11 +432,5 @@ h3 {
 }
 
 
-.search-icons img{
-    gap: 20px;
-    width: auto;
-    height: auto;
-    padding: 10px;
-}
 
 
