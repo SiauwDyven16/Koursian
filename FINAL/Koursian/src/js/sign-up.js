@@ -29,11 +29,18 @@ const submit = document.getElementById('submit');
 const form = document.getElementById('sign-upForm');
 const usernameInput = document.getElementById('username');
 const usernameStatus = document.getElementById('usernameStatus');
+const passwordInput = document.getElementById('password');
+const passwordStatus = document.getElementById('passwordStatus');
+const passwordFormatStatus = document.getElementById('passwordFormatStatus');
+const confirmPasswordInput = document.getElementById('confirmpass')
 
 // Username validation state
 let usernameCheckTimeout;
-let isUsernameValid = false;
+let passwordCheckTimeout;
+let isUsernameValid = false;  
 let isUsernameAvailable = false;
+let isPasswordMatch = false;
+let isPasswordFormatValid = false;
 
 // Function to check username format
 function isValidUsernameFormat(username) {
@@ -52,14 +59,63 @@ async function checkUsernameAvailability(username) {
   }
 }
 
+function passwordFormatCheck(password) {
+  // Selaraskan dengan aturan form & submit handler: minimal 6 karakter
+  return password.length >= 6;
+}
+
+function showPasswordFeedback(message, className) {
+  passwordStatus.style.opacity = '0';
+
+  setTimeout(() => {
+    // Kalau status = match → inject SVG + teks
+    if (className.includes('password-match')) {
+      passwordStatus.innerHTML = `
+        <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+</svg> ${message}
+      `;
+    } else {
+      // Kalau mismatch → text biasa
+      passwordStatus.textContent = message;
+    }
+
+    passwordStatus.className = `password-status ${className}`;
+
+    setTimeout(() => {
+      passwordStatus.style.opacity = '1';
+    }, 10);
+  }, 150);
+}
+
+
+function hidePasswordFeedback() {
+  passwordStatus.style.opacity = '0';
+  setTimeout(() => {
+    passwordStatus.textContent = '';
+    passwordStatus.className = 'password-status';
+  }, 150);
+}
+
+
 // Function to show feedback with smooth transition
 function showFeedback(message, className) {
   usernameStatus.style.opacity = '0';
-  
+
   setTimeout(() => {
-    usernameStatus.textContent = message;
+    if (className.includes('username-available')) {
+      usernameStatus.innerHTML = `
+        <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+</svg>
+ ${message}
+      `;
+    } else {
+      usernameStatus.textContent = message;
+    }
+
     usernameStatus.className = `username-status ${className} show`;
-    
+
     setTimeout(() => {
       usernameStatus.style.opacity = '1';
     }, 10);
@@ -75,26 +131,46 @@ function hideFeedback() {
   }, 150);
 }
 
+// Password format feedback helpers
+function showPasswordFormatFeedback(message, className) {
+  passwordFormatStatus.style.opacity = '0';
+  setTimeout(() => {
+    passwordFormatStatus.textContent = message;
+    passwordFormatStatus.className = `password-format-status ${className} show`;
+    setTimeout(() => {
+      passwordFormatStatus.style.opacity = '1';
+    }, 10);
+  }, 150);
+}
+
+function hidePasswordFormatFeedback() {
+  passwordFormatStatus.style.opacity = '0';
+  setTimeout(() => {
+    passwordFormatStatus.textContent = '';
+    passwordFormatStatus.className = 'password-format-status';
+  }, 150);
+}
+
 // Username input event handler with real-time validation
-usernameInput.addEventListener('input', function() {
+usernameInput.addEventListener('input', function () {
   const username = this.value.trim();
-  
+
   // Clear previous timeout
   clearTimeout(usernameCheckTimeout);
-  
+
   // Reset states
   isUsernameValid = false;
   isUsernameAvailable = false;
-  
+
   // Remove validation classes
   usernameInput.classList.remove('valid', 'invalid');
-  
+
   if (username.length === 0) {
     hideFeedback();
     updateSubmitButton();
     return;
   }
-  
+
   // Check format first
   if (!isValidUsernameFormat(username)) {
     showFeedback('3-20 characters, letters & numbers only', 'username-invalid');
@@ -102,47 +178,47 @@ usernameInput.addEventListener('input', function() {
     updateSubmitButton();
     return;
   }
-  
+
   isUsernameValid = true;
-  
+
   // Show checking status with loading animation
   showFeedback('Checking availability...', 'username-checking');
-  
+
   // Debounced username availability check
   usernameCheckTimeout = setTimeout(async () => {
     try {
       const available = await checkUsernameAvailability(username);
-      // 'Username available', 'username-available'
+
       if (available) {
-        showFeedback('Username available', 'username-available');
-        usernameInput.classList.remove('invalid');
-        usernameInput.classList.add('valid');
+        showFeedback("Username available", "username-available");
+        usernameInput.classList.remove("invalid");
+        usernameInput.classList.add("valid");
         isUsernameAvailable = true;
       } else {
-        showFeedback('Username already taken', 'username-taken');
-        usernameInput.classList.remove('valid');
-        usernameInput.classList.add('invalid');
+        showFeedback("Username already taken", "username-taken");
+        usernameInput.classList.remove("valid");
+        usernameInput.classList.add("invalid");
         isUsernameAvailable = false;
       }
     } catch (error) {
-      showFeedback('Error checking username', 'username-invalid');
-      usernameInput.classList.remove('valid');
-      usernameInput.classList.add('invalid');
+      showFeedback("Error checking username", "username-invalid");
+      usernameInput.classList.remove("valid");
+      usernameInput.classList.add("invalid");
       isUsernameAvailable = false;
     }
-    
+
     updateSubmitButton();
-  }, 800); // Increased delay for better UX
+  }, 800);
 });
 
 // Focus/blur effects for better UX
-usernameInput.addEventListener('focus', function() {
+usernameInput.addEventListener('focus', function () {
   if (this.value.trim().length > 0) {
     usernameStatus.classList.add('show');
   }
 });
 
-usernameInput.addEventListener('blur', function() {
+usernameInput.addEventListener('blur', function () {
   if (this.value.trim().length === 0) {
     hideFeedback();
   }
@@ -150,9 +226,9 @@ usernameInput.addEventListener('blur', function() {
 
 // Function to update submit button state
 function updateSubmitButton() {
-  const canSubmit = isUsernameValid && isUsernameAvailable;
+  const canSubmit = isUsernameValid && isUsernameAvailable && isPasswordFormatValid && isPasswordMatch;
   submit.disabled = !canSubmit;
-  
+
   if (canSubmit) {
     submit.style.opacity = '1';
     submit.style.cursor = 'pointer';
@@ -175,6 +251,12 @@ form.addEventListener('submit', async function (event) {
     alert("All fields are required!");
     return;
   }
+
+  if (!isPasswordFormatValid || !isPasswordMatch) {
+    alert("Passwords don't match!");
+    return;
+  }
+
 
   if (!isUsernameValid || !isUsernameAvailable) {
     alert("Please choose a valid and available username!");
@@ -219,7 +301,7 @@ form.addEventListener('submit', async function (event) {
 
     // Save user data to Firestore
     console.log("Saving user data...");
-    
+
     // Save username document (for uniqueness tracking)
     await setDoc(doc(db, "usernames", username.toLowerCase()), {
       uid: user.uid,
@@ -244,15 +326,15 @@ form.addEventListener('submit', async function (event) {
 
     // Success notification
     alert("🎉 Account created successfully!");
-    
+
     // Redirect to sign in page
     window.location.href = "index.html";
 
   } catch (error) {
     console.error("Registration error:", error);
-    
+
     let errorMessage = "Failed to create account! ";
-    
+
     switch (error.code) {
       case 'auth/email-already-in-use':
         errorMessage += "This email is already registered.";
@@ -283,18 +365,60 @@ form.addEventListener('submit', async function (event) {
 });
 
 // Password confirmation validation
-document.getElementById('confirmpass').addEventListener('input', function() {
-  const password = document.getElementById('password').value;
-  const confirmPassword = this.value;
-  
-  if (confirmPassword && password !== confirmPassword) {
-    this.style.borderColor = '#ef4444';
-  } else if (confirmPassword && password === confirmPassword) {
-    this.style.borderColor = '#22c55e';
-  } else {
-    this.style.borderColor = '';
-  }
-});
+function updatePasswordMatch() {
+  const password = passwordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
 
-// Initialize submit button state
-updateSubmitButton();
+  // Reset styles first
+  confirmPasswordInput.classList.remove('valid', 'invalid');
+
+  if (!confirmPassword) {
+    hidePasswordFeedback();
+    isPasswordMatch = false;
+    updateSubmitButton();
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    showPasswordFeedback("Passwords don't match", 'password-mismatch');
+    confirmPasswordInput.classList.add('invalid');
+    isPasswordMatch = false;
+  } else {
+    showPasswordFeedback('Passwords match', 'password-match');
+    confirmPasswordInput.classList.add('valid');
+    isPasswordMatch = true;
+  }
+
+  updateSubmitButton();
+}
+
+passwordInput.addEventListener('input', updatePasswordMatch);
+confirmPasswordInput.addEventListener('input', updatePasswordMatch);
+
+// Password format validation with debounce
+passwordInput.addEventListener('input', function () {
+  const password = this.value;
+
+  clearTimeout(passwordCheckTimeout);
+
+  // Reset classes for password input
+  passwordInput.classList.remove('valid', 'invalid');
+
+  if (!password) {
+    isPasswordFormatValid = false;
+    updatePasswordMatch();
+    updateSubmitButton(); 
+    return;
+  }
+
+    // Debounce cek format password
+  passwordCheckTimeout = setTimeout(() => {
+    const formatOk = passwordFormatCheck(password);
+    isPasswordFormatValid = formatOk;
+
+
+    // Re-validate confirm match ketika password berubah
+    updatePasswordMatch();
+    updateSubmitButton();
+  }, 500);
+});

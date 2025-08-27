@@ -182,6 +182,12 @@ body {
     align-items: center;
 }
 
+.input-confirmpass .label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .input-username .input {
     width: 100%;
 }
@@ -237,8 +243,19 @@ label {
 }
 
 .username-status.username-available {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-paragraph);
+    transition: var(--transition);
+    opacity: 0;
+    position: relative;
+    line-height: 1.4;
     color: var(--color-success);
     min-width: auto;
+    height: 7px;
+    animation: fadeUpOutStatus 1s ease-out forwards;
 }
 
 .username-status.username-taken {
@@ -305,6 +322,88 @@ label {
 .username-status.fade-out {
     animation: fadeOut 0.2s ease-in;
 }
+
+/* Styling status password */
+.password-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-paragraph);
+    transition: var(--transition);
+    opacity: 0;
+    position: relative;
+    line-height: 1.4;
+}
+
+.password-status.password-mismatch {
+    color: var(--color-warning);
+    min-width: auto;
+}
+
+.password-status.password-match {
+    animation: fadeUpOutStatus 1s ease-out forwards;
+    color: var(--color-success);
+    min-width: auto;
+}
+
+.password-status.password-match::before {
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-success);
+    opacity: 0;
+    transform: scale(0.5);
+    animation: checkmark 1s ease-out forwards;
+}
+
+.check-icon {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    stroke: var(--color-success);
+    opacity: 0;
+    transform: translateY(5px); /* mulai agak turun */
+    animation: fadeUpOutIcon 1s ease-out forwards;
+  }
+  
+  @keyframes fadeUpOutIcon {
+    0% {
+      opacity: 0;
+      transform: translateY(8px) scale(0.9);
+    }
+    25% {
+      opacity: 1;
+      transform: translateY(0) scale(1.05);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0) scale(0.95);
+    }
+  }
+
+  @keyframes fadeUpOutStatus {
+    0% {
+      opacity: 0;
+      transform: translateY(8px)
+    }
+    25% {
+      opacity: 1;
+      transform: translateY(0)
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(0)
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+
 
 /* Input validation styles dengan transition smooth */
 .input-form {
