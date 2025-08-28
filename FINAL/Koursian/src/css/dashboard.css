@@ -22,21 +22,21 @@
 /* ⇩⇩ Ini font dari figmanya yah ⇩⇩ */
 @font-face {
     font-family: 'LufgaSemiBold';
-    src: url('src\assets\font\LufgaSemiBold.ttf') format('truetype');
+    src: url('FINAL\Koursian\src\assets\font\LufgaMedium.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'LufgaMedium';
-    src: url('src\assets\font\LufgaMedium.ttf') format('truetype');
+    src: url('FINAL\Koursian\src\assets\font\LufgaMedium.woff2f') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'LufgaBold';
-    src: url('src\assets\font\LufgaBold.ttf') format('truetype');
+    src: url('FINAL\Koursian\src\assets\font\LufgaBold.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -92,25 +92,66 @@ body {
 .input-icon{
     background-color: rgba(37, 37, 43, 5%);
     border-radius: 50px;
+    position: absolute;
+    left: 33.64%;
+    right: 33.64%;
 }
 
 .input-icon img{
     padding-left: 15px;
     padding-top: 15px;
+    height: 24px;
+    width: 24px;
 }
 
-.tengah {
+.center{
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
 }
 
 .search-icons img{
     gap: 20px;
     width: auto;
     height: auto;
+    margin-left: 20px;
+    cursor: pointer;
     padding: 10px;
 }
+
+header {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    box-shadow: 0px 0px 0px 0px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+header h2 {
+    color: #333;
+    font-size: 32px;
+    font-family: 'LufgaSemiBold', Arial, sans-serif;
+}
+
+header input {
+    border: 0px;
+    width: 530px;
+    height: 56px;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: ease-in-out 0.3s;
+    background-color: rgba(37, 37, 43, 0%);
+    
+}
+
+header input::placeholder {
+    color: #a2a2a2;
+    font-size: 16px;
+
+}
+ header input:focus {
+    outline: none;
+    border-color: #FFD25D;
+ }
 
 
 
@@ -160,48 +201,31 @@ body {
     padding: 20px;
 }
 
+.icon img{
+    width: 26.67px;
+    height:  26.67px;
+}
 
-/* NAVBAR */
-header {
-    justify-content: space-between;
-    align-items: center;
+.brand {
     display: flex;
-    box-shadow: 0px 0px 0px 0px;
-    padding: 10px;
-    border-radius: 4px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-header h2 {
-    color: #333;
-    font-size: 32px;
-    font-family: 'LufgaSemiBold', Arial, sans-serif;
+.brand h3{
+    font-size: 24px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+     font-family: 'LufgaMedium';
 }
-
-header input {
-    padding: 15px;
-    border: 0px;
-    width: 530px;
-    height: 53px;
-    border-radius: 50px;
-    font-size: 16px;
-    background-image: url('assets/search-icon.png');
-    transition: ease-in-out 0.3s;
-    background-color: rgba(37, 37, 43, 0%);
-}
-
-header input::placeholder {
-    color: #a2a2a2;
-}
- header input:focus {
-    outline: none;
-    border-color: #FFD25D;
- }
 
 
  /* BANNER */
 .banners {
     margin: 20px 0;
-    color: white;
     padding: 10px;
     margin-bottom: 10px;
     text-align: center;
@@ -227,11 +251,19 @@ header input::placeholder {
 }
 
 .banner-promo p{
-    text-align: center;
+    text-align: left;
     margin-top: 5%;
     font-size: 30px;
     font-weight: bold;
-    font-family: 'LufgaSemiBold', Arial, sans-serif;
+    font-family: 'LufgaSemiBold', Arial, sans-serif;    
+    position: relative;
+    width: 775px;
+    height: 84px;
+    font-size: 32px;
+    line-height: 42px;
+    color: #FFFFFF;
+    right: -50px;
+
 
 }
 
@@ -245,20 +277,20 @@ header input::placeholder {
     flex: 1 ;
 
     display: flex;
-    flex-direction: column;  
-    justify-content: center;  
-    align-items: center;      
-    text-align: center;       
+    flex-direction: column;        
       
 }
 
 .banner-main p {
-    text-align: center;
+    text-align: left;
+    padding-left: 50px;
+    padding-top: 40px;
     margin-top: 5%;
     position: relative;
     font-size: 30px;
     font-weight: bold;
     font-family: 'LufgaSemiBold', Arial, sans-serif;
+    color: #333;
 }
 
 .banner-overlay {
@@ -270,11 +302,50 @@ header input::placeholder {
     object-fit: cover;
 }
 
-.text1 h2{
-    font-weight: bold;
-    font-size: 40px;
-    font-family: 'LufgaSemiBold', Arial, sans-serif;
+.promosi {
+    width: 148px;
+    height: 148px;
+    left: 647px;
+    top: -56px;
+    position: absolute;
+}
 
+.sun {
+    position: absolute;
+    width: 179.08px;
+    height: 179.06px;
+    left: -19px;
+    top: -43px;
+}
+
+.wave {
+    width: 145px;
+    height: 27px;
+    left: 30px;
+    top: 40px;
+    position: absolute;
+
+/* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.circle {
+    position: absolute;
+    width: 172px;
+    height: 172px;
+    left: 0.1px;
+    top: -55px;
+    opacity: 40%;
+}
+
+.promosi1{
+    position: absolute;
+    width: 260px;
+    height: 106px;
+    left: 600px;
+    top: 125px;
 }
 
 
@@ -410,26 +481,6 @@ h3 {
 
 
 
-.icon img{
-    width: 26.67px;
-    height:  26.67px;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.brand h3{
-    font-size: 24px;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
-     font-family: 'LufgaMedium';
-}
 
 
 
