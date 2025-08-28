@@ -188,6 +188,12 @@ body {
     align-items: center;
 }
 
+.input-password .label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .input-username .input {
     width: 100%;
 }
@@ -403,6 +409,31 @@ label {
     }
   }
   
+
+/* Password format status */
+.password-format-status {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-paragraph);
+    transition: var(--transition);
+    opacity: 0;
+    min-width: 300px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.password-format-status.show {
+    opacity: 1;
+}
+
+.password-format-status.invalid {
+    color: var(--color-warning);
+    min-width: auto;
+}
+
+.password-format-status.valid {
+    color: var(--color-success);
+    min-width: auto;
+}
 
 
 /* Input validation styles dengan transition smooth */

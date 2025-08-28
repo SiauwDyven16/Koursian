@@ -60,8 +60,11 @@ async function checkUsernameAvailability(username) {
 }
 
 function passwordFormatCheck(password) {
-  // Selaraskan dengan aturan form & submit handler: minimal 6 karakter
-  return password.length >= 6;
+  // Aturan: minimal 6 karakter, mengandung huruf dan angka
+  const hasMinLength = password.length >= 6;
+  const hasLetter = /[a-zA-Z]/.test(password);
+  const hasNumber = /\d/.test(password);
+  return hasMinLength && hasLetter && hasNumber;
 }
 
 function showPasswordFeedback(message, className) {
@@ -406,6 +409,7 @@ passwordInput.addEventListener('input', function () {
 
   if (!password) {
     isPasswordFormatValid = false;
+    hidePasswordFormatFeedback();
     updatePasswordMatch();
     updateSubmitButton(); 
     return;
@@ -416,6 +420,14 @@ passwordInput.addEventListener('input', function () {
     const formatOk = passwordFormatCheck(password);
     isPasswordFormatValid = formatOk;
 
+    if (!formatOk) {
+      showPasswordFormatFeedback(
+        'Min. 6 characters, must include letters & numbers',
+        'invalid'
+      );
+    } else {
+      showPasswordFormatFeedback('Password valid', 'valid');
+    }
 
     // Re-validate confirm match ketika password berubah
     updatePasswordMatch();
