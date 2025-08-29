@@ -426,7 +426,7 @@ passwordInput.addEventListener('input', function () {
         'invalid'
       );
     } else {
-      showPasswordFormatFeedback('Password valid', 'valid');
+      showPasswordFormatFeedback('', 'valid');
     }
 
     // Re-validate confirm match ketika password berubah

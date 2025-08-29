@@ -42,6 +42,7 @@ body {
     color: var(--color-white);
 }
 
+
 .header-left .img {
     position: absolute;
 }
@@ -368,47 +369,54 @@ label {
     vertical-align: middle;
     stroke: var(--color-success);
     opacity: 0;
-    transform: translateY(5px); /* mulai agak turun */
+    transform: translateY(5px);
+    /* mulai agak turun */
     animation: fadeUpOutIcon 1s ease-out forwards;
-  }
-  
-  @keyframes fadeUpOutIcon {
-    0% {
-      opacity: 0;
-      transform: translateY(8px) scale(0.9);
-    }
-    25% {
-      opacity: 1;
-      transform: translateY(0) scale(1.05);
-    }
-    60% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(0) scale(0.95);
-    }
-  }
+}
 
-  @keyframes fadeUpOutStatus {
+@keyframes fadeUpOutIcon {
     0% {
-      opacity: 0;
-      transform: translateY(8px)
+        opacity: 0;
+        transform: translateY(8px) scale(0.9);
     }
+
     25% {
-      opacity: 1;
-      transform: translateY(0)
+        opacity: 1;
+        transform: translateY(0) scale(1.05);
     }
+
     60% {
-      opacity: 1;
-      transform: translateY(0)
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
+
     100% {
-      opacity: 1;
+        opacity: 0;
+        transform: translateY(0) scale(0.95);
     }
-  }
-  
+}
+
+@keyframes fadeUpOutStatus {
+    0% {
+        opacity: 0;
+        transform: translateY(8px)
+    }
+
+    25% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 
 /* Password format status */
 .password-format-status {
@@ -509,4 +517,1055 @@ label {
 
 .sign-in a:hover {
     color: var(--color-primary-hover);
+}
+
+
+@media screen and (max-width: 1920px) {
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Lufga', sans-serif;
+    }
+
+    body {
+        display: flex;
+    }
+
+    .split {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left {
+        background-color: var(--color-primary);
+    }
+
+    .right {
+        background-color: var(--color-white);
+    }
+
+    .center {
+        display: flex;
+        flex-direction: column;
+        max-width: 550px;
+        min-width: 550px;
+        gap: var(--gap-xl);
+    }
+
+    /* ---------- Left Section ---------- */
+    .header-left {
+        width: 679px;
+        font-weight: 700;
+        font-size: var(--fs-hero);
+        line-height: 84px;
+        letter-spacing: -0.04em;
+        color: var(--color-white);
+    }
+
+    .header-left .img {
+        position: absolute;
+    }
+
+    .header-text {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .image-1 {
+        width: 297px;
+        height: 297px;
+        left: -83px;
+        top: -101px;
+    }
+
+    .image-2 {
+        position: relative;
+        width: 145px;
+        height: 27px;
+    }
+
+    .image-3 {
+        width: 300px;
+        height: 297px;
+        left: 480px;
+        top: 288px;
+    }
+
+    .image-4 {
+        width: 137px;
+        height: 137px;
+        left: 687px;
+        top: 698px;
+    }
+
+    .image-5 {
+        width: auto;
+        height: 80px;
+        left: 430px;
+        bottom: 0;
+    }
+
+    /* ---------- Right Section ---------- */
+    .header-logo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-weight: 500;
+        font-size: var(--fs-heading);
+        line-height: 26px;
+        color: var(--color-text);
+    }
+
+    .header-logo img {
+        width: 40px;
+    }
+
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-sm);
+    }
+
+    .header {
+        color: var(--color-text);
+        font-size: var(--fs-title);
+        font-weight: 500;
+        line-height: 52px;
+    }
+
+    .description {
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-paragraph);
+        line-height: 21px;
+        color: var(--color-text);
+        opacity: 0.6;
+    }
+
+    /* ---------- Form ---------- */
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-md);
+        min-width: 550px;
+    }
+
+    .header-password {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-xl);
+    }
+
+    .header-forgot {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-xl);
+    }
+
+    .header-input {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-lg);
+    }
+
+    .input-semua {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-md);
+    }
+
+    /* Memastikan semua input field memiliki spacing yang konsisten */
+    .input-email,
+    .input-password,
+    .input-confirmpass {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-sm);
+    }
+
+    .input {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-sm);
+        position: relative;
+    }
+
+    .input-username {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-sm);
+    }
+
+    .input-username .label-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .input-confirmpass .label-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .input-password .label-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .input-username .input {
+        width: 100%;
+    }
+
+    label {
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-paragraph);
+        color: var(--color-text);
+        opacity: 1;
+    }
+
+    .form-container input {
+        border: 2px solid var(--color-input-bg);
+        height: 20px;
+        border-radius: var(--radius-pill);
+        padding: 20px 24px;
+        background: var(--color-input-bg);
+        transition: var(--transition);
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-input);
+    }
+
+    .form-container ::placeholder {
+        opacity: 0.8;
+    }
+
+    .form-container input:focus {
+        background: var(--color-white);
+        border: 2px solid var(--color-primary);
+        outline: none;
+    }
+
+    /* Username validation styles */
+    .username-help {
+        font-size: 12px;
+        color: var(--color-text-muted);
+        margin-top: -8px;
+    }
+
+    /* Username status styling */
+    .username-status {
+        font-size: var(--fs-small);
+        font-weight: var(--fw-paragraph);
+        transition: var(--transition);
+        opacity: 0;
+        min-width: 300px;
+        position: relative;
+        line-height: 1.4;
+    }
+
+    .username-status.show {
+        opacity: 1;
+    }
+
+    .username-status.username-available {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: var(--fs-small);
+        font-weight: var(--fw-paragraph);
+        transition: var(--transition);
+        opacity: 0;
+        position: relative;
+        line-height: 1.4;
+        color: var(--color-success);
+        min-width: auto;
+        height: 7px;
+        animation: fadeUpOutStatus 1s ease-out forwards;
+    }
+
+    .username-status.username-taken {
+        color: var(--color-warning);
+        min-width: auto;
+    }
+
+    .username-status.username-invalid {
+        color: var(--color-warning);
+        min-width: auto;
+    }
+
+    .username-status.username-checking {
+        color: var(--color-secondary);
+        min-width: auto;
+    }
+
+    /* Loading animation untuk checking username */
+    .username-status.username-checking::before {
+        content: '';
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border: 2px solid var(--color-secondary);
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s linear infinite;
+        vertical-align: middle;
+        margin-bottom: 5.5px;
+        margin-right: 4px;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Fade in/out animation yang tidak mengubah layout */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    .username-status.fade-in {
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    .username-status.fade-out {
+        animation: fadeOut 0.2s ease-in;
+    }
+
+    /* Styling status password */
+    .password-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: var(--fs-small);
+        font-weight: var(--fw-paragraph);
+        transition: var(--transition);
+        opacity: 0;
+        position: relative;
+        line-height: 1.4;
+    }
+
+    .password-status.password-mismatch {
+        color: var(--color-warning);
+        min-width: auto;
+    }
+
+    .password-status.password-match {
+        animation: fadeUpOutStatus 1s ease-out forwards;
+        color: var(--color-success);
+        min-width: auto;
+    }
+
+    .password-status.password-match::before {
+        width: 18px;
+        height: 18px;
+        stroke: var(--color-success);
+        opacity: 0;
+        transform: scale(0.5);
+        animation: checkmark 1s ease-out forwards;
+    }
+
+    .check-icon {
+        width: 14px;
+        height: 14px;
+        vertical-align: middle;
+        stroke: var(--color-success);
+        opacity: 0;
+        transform: translateY(5px);
+        /* mulai agak turun */
+        animation: fadeUpOutIcon 1s ease-out forwards;
+    }
+
+    @keyframes fadeUpOutIcon {
+        0% {
+            opacity: 0;
+            transform: translateY(8px) scale(0.9);
+        }
+
+        25% {
+            opacity: 1;
+            transform: translateY(0) scale(1.05);
+        }
+
+        60% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateY(0) scale(0.95);
+        }
+    }
+
+    @keyframes fadeUpOutStatus {
+        0% {
+            opacity: 0;
+            transform: translateY(8px)
+        }
+
+        25% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        60% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    /* Password format status */
+    .password-format-status {
+        font-size: var(--fs-small);
+        font-weight: var(--fw-paragraph);
+        transition: var(--transition);
+        opacity: 0;
+        min-width: 300px;
+        position: relative;
+        line-height: 1.4;
+    }
+
+    .password-format-status.show {
+        opacity: 1;
+    }
+
+    .password-format-status.invalid {
+        color: var(--color-warning);
+        min-width: auto;
+    }
+
+    .password-format-status.valid {
+        color: var(--color-success);
+        min-width: auto;
+    }
+
+
+    /* Input validation styles dengan transition smooth */
+    .input-form {
+        transition: var(--transition);
+    }
+
+    .input-form.valid {
+        border-color: #22c55e;
+        background: #f0fdf4;
+    }
+
+    .input-form.valid:focus {
+        border-color: #22c55e;
+        background: #f0fdf4;
+    }
+
+    .input-form.invalid {
+        border-color: #ef4444;
+        background: #fef2f2;
+    }
+
+    .input-form.invalid:focus {
+        border-color: #ef4444;
+        background: #fef2f2;
+    }
+
+    /* ---------- Sign In & Sign Up ---------- */
+    .sign-up-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-md);
+    }
+
+    .sign-up {
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-primary);
+        border: 2px solid var(--color-primary);
+        border-radius: var(--radius-btn);
+        min-width: 550px;
+        height: 52px;
+        transition: var(--transition);
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-paragraph);
+    }
+
+    .sign-up:hover {
+        background: var(--color-primary-hover);
+        cursor: pointer;
+    }
+
+    .sign-up:disabled {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+        cursor: not-allowed;
+    }
+
+    .sign-in {
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-paragraph);
+        text-align: center;
+        letter-spacing: -0.04em;
+        color: var(--color-text-muted);
+    }
+
+    .sign-in a {
+        text-decoration: none;
+        color: var(--color-primary);
+    }
+
+    .sign-in a:hover {
+        color: var(--color-primary-hover);
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Lufga', sans-serif;
+    }
+
+    body {
+        display: flex;
+    }
+
+    .split {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left {
+        background-color: var(--color-primary);
+    }
+
+    .right {
+        background-color: var(--color-white);
+    }
+
+    .center {
+        display: flex;
+        flex-direction: column;
+        max-width: 550px;
+        min-width: 550px;
+        gap: var(--gap-xl);
+    }
+
+    /* ---------- Left Section ---------- */
+    .header-left {
+        width: 488px;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 84px;
+        letter-spacing: -0.04em;
+        color: var(--color-white);
+        line-height: 63px;
+    }
+
+    .header-left p {
+        align-items: center;
+    }
+
+    .header-left .img {
+        position: absolute;
+    }
+
+    .header-text {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .image-1 {
+        width: 297px;
+        height: 297px;
+        left: -73px;
+        top: -101px;
+    }
+
+    .image-2 {
+        position: relative;
+        width: 145px;
+        height: 27px;
+    }
+
+    .image-3 {
+        width: 180px;
+        height: 177.57px;
+        left: 360px;
+        top: 347px;
+
+    }
+
+    .image-4 {
+        width: 137px;
+        height: 137px;
+        left: 543px;
+        top: 642px;
+    }
+
+    .image-5 {
+        width: 400px;
+        height: auto;
+        left: 250px;
+        bottom: 0;
+    }
+
+    /* ---------- Right Section ---------- */
+    .header-logo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-weight: 500;
+        font-size: var(--fs-heading);
+        line-height: 26px;
+        color: var(--color-text);
+    }
+
+    .header-logo img {
+        width: 40px;
+    }
+
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-sm);
+    }
+
+    .header {
+        color: var(--color-text);
+        font-size: var(--fs-title);
+        font-weight: 500;
+        line-height: 52px;
+    }
+
+    .description {
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-paragraph);
+        line-height: 21px;
+        color: var(--color-text);
+        opacity: 0.6;
+    }
+
+    /* ---------- Form ---------- */
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-md);
+        min-width: 550px;
+    }
+
+    .header-password {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-xl);
+    }
+
+    .header-forgot {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-xl);
+    }
+
+    .header-input {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-lg);
+    }
+
+    .input-semua {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-md);
+    }
+
+    /* Memastikan semua input field memiliki spacing yang konsisten */
+    .input-email,
+    .input-password,
+    .input-confirmpass {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-sm);
+    }
+
+    .input {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-sm);
+        position: relative;
+    }
+
+    .input-username {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-sm);
+    }
+
+    .input-username .label-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .input-confirmpass .label-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .input-password .label-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .input-username .input {
+        width: 100%;
+    }
+
+    label {
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-paragraph);
+        color: var(--color-text);
+        opacity: 1;
+    }
+
+    .form-container input {
+        border: 2px solid var(--color-input-bg);
+        height: 20px;
+        border-radius: var(--radius-pill);
+        padding: 20px 24px;
+        background: var(--color-input-bg);
+        transition: var(--transition);
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-input);
+    }
+
+    .form-container ::placeholder {
+        opacity: 0.8;
+    }
+
+    .form-container input:focus {
+        background: var(--color-white);
+        border: 2px solid var(--color-primary);
+        outline: none;
+    }
+
+    /* Username validation styles */
+    .username-help {
+        font-size: 12px;
+        color: var(--color-text-muted);
+        margin-top: -8px;
+    }
+
+    /* Username status styling */
+    .username-status {
+        font-size: var(--fs-small);
+        font-weight: var(--fw-paragraph);
+        transition: var(--transition);
+        opacity: 0;
+        min-width: 300px;
+        position: relative;
+        line-height: 1.4;
+    }
+
+    .username-status.show {
+        opacity: 1;
+    }
+
+    .username-status.username-available {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: var(--fs-small);
+        font-weight: var(--fw-paragraph);
+        transition: var(--transition);
+        opacity: 0;
+        position: relative;
+        line-height: 1.4;
+        color: var(--color-success);
+        min-width: auto;
+        height: 7px;
+        animation: fadeUpOutStatus 1s ease-out forwards;
+    }
+
+    .username-status.username-taken {
+        color: var(--color-warning);
+        min-width: auto;
+    }
+
+    .username-status.username-invalid {
+        color: var(--color-warning);
+        min-width: auto;
+    }
+
+    .username-status.username-checking {
+        color: var(--color-secondary);
+        min-width: auto;
+    }
+
+    /* Loading animation untuk checking username */
+    .username-status.username-checking::before {
+        content: '';
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border: 2px solid var(--color-secondary);
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s linear infinite;
+        vertical-align: middle;
+        margin-bottom: 5.5px;
+        margin-right: 4px;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Fade in/out animation yang tidak mengubah layout */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    .username-status.fade-in {
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    .username-status.fade-out {
+        animation: fadeOut 0.2s ease-in;
+    }
+
+    /* Styling status password */
+    .password-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: var(--fs-small);
+        font-weight: var(--fw-paragraph);
+        transition: var(--transition);
+        opacity: 0;
+        position: relative;
+        line-height: 1.4;
+    }
+
+    .password-status.password-mismatch {
+        color: var(--color-warning);
+        min-width: auto;
+    }
+
+    .password-status.password-match {
+        animation: fadeUpOutStatus 1s ease-out forwards;
+        color: var(--color-success);
+        min-width: auto;
+    }
+
+    .password-status.password-match::before {
+        width: 18px;
+        height: 18px;
+        stroke: var(--color-success);
+        opacity: 0;
+        transform: scale(0.5);
+        animation: checkmark 1s ease-out forwards;
+    }
+
+    .check-icon {
+        width: 14px;
+        height: 14px;
+        vertical-align: middle;
+        stroke: var(--color-success);
+        opacity: 0;
+        transform: translateY(5px);
+        /* mulai agak turun */
+        animation: fadeUpOutIcon 1s ease-out forwards;
+    }
+
+    @keyframes fadeUpOutIcon {
+        0% {
+            opacity: 0;
+            transform: translateY(8px) scale(0.9);
+        }
+
+        25% {
+            opacity: 1;
+            transform: translateY(0) scale(1.05);
+        }
+
+        60% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateY(0) scale(0.95);
+        }
+    }
+
+    @keyframes fadeUpOutStatus {
+        0% {
+            opacity: 0;
+            transform: translateY(8px)
+        }
+
+        25% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        60% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    /* Password format status */
+    .password-format-status {
+        font-size: var(--fs-small);
+        font-weight: var(--fw-paragraph);
+        transition: var(--transition);
+        opacity: 0;
+        min-width: 300px;
+        position: relative;
+        line-height: 1.4;
+    }
+
+    .password-format-status.show {
+        opacity: 1;
+    }
+
+    .password-format-status.invalid {
+        color: var(--color-warning);
+        min-width: auto;
+    }
+
+    .password-format-status.valid {
+        color: var(--color-success);
+        min-width: auto;
+    }
+
+
+    /* Input validation styles dengan transition smooth */
+    .input-form {
+        transition: var(--transition);
+    }
+
+    .input-form.valid {
+        border-color: #22c55e;
+        background: #f0fdf4;
+    }
+
+    .input-form.valid:focus {
+        border-color: #22c55e;
+        background: #f0fdf4;
+    }
+
+    .input-form.invalid {
+        border-color: #ef4444;
+        background: #fef2f2;
+    }
+
+    .input-form.invalid:focus {
+        border-color: #ef4444;
+        background: #fef2f2;
+    }
+
+    /* ---------- Sign In & Sign Up ---------- */
+    .sign-up-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-md);
+    }
+
+    .sign-up {
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-primary);
+        border: 2px solid var(--color-primary);
+        border-radius: var(--radius-btn);
+        min-width: 550px;
+        height: 52px;
+        transition: var(--transition);
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-paragraph);
+    }
+
+    .sign-up:hover {
+        background: var(--color-primary-hover);
+        cursor: pointer;
+    }
+
+    .sign-up:disabled {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+        cursor: not-allowed;
+    }
+
+    .sign-in {
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-paragraph);
+        text-align: center;
+        letter-spacing: -0.04em;
+        color: var(--color-text-muted);
+    }
+
+    .sign-in a {
+        text-decoration: none;
+        color: var(--color-primary);
+    }
+
+    .sign-in a:hover {
+        color: var(--color-primary-hover);
+    }
 }

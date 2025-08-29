@@ -817,7 +817,7 @@ label {
     }
 
     .split {
-        width: 50vw;
+        width: 100%;
         height: 100vh;
         display: flex;
         justify-content: center;
@@ -842,7 +842,7 @@ label {
 
     /* ---------- Left Section ---------- */
     .header-left {
-        width: 679px;
+        width: 488px;
         font-weight: 700;
         font-size: 48px;
         line-height: 84px;
@@ -858,7 +858,7 @@ label {
     .header-text {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center;  
         gap: 12px;
     }
 
@@ -878,13 +878,12 @@ label {
 
     .image-3 {
         width: 180px;
-        height: 177px;
-        left: 362px;
-        top: 345px;
+        height: 177.57px;
+        left: 360px;
+        top: 347px;
     }
 
     .image-4 {
-        display: none;
         position: absolute;
         width: 137px;
         height: 137px;
@@ -896,15 +895,13 @@ label {
     .image-5 {
         width: 400px;
         height: auto;
-        right: 0;
+        left: 250px;
         bottom: 0;
     }
 
     /* ---------- Right Section ---------- */
     .header-logo {
         display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 16px;
         font-weight: 500;
         font-size: var(--fs-heading);
@@ -919,13 +916,10 @@ label {
     .header-container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         gap: var(--gap-md);
     }
 
     .header {
-        text-align: center;
         color: var(--color-text);
         font-size: var(--fs-title);
         font-weight: 500;
@@ -933,8 +927,7 @@ label {
     }
 
     .description {
-        text-align: center;
-        width: 260px;
+        width: auto;
         font-size: var(--fs-paragraph);
         font-weight: var(--fw-paragraph);
         line-height: 21px;
