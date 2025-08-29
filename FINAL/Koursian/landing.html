@@ -1,47 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="src/css/landing.css"/>
-    <link rel="stylesheet" href="src/css/root.css"/>
-    <link href="https://fonts.cdnfonts.com/css/lufga" rel="stylesheet" />
-  </head>
-  <body>
-    <header>
-      <span class="koursian">
-        <img src="src/assets/icons/Logo.svg"></img>
-        <p>Koursian</p>
-      </span>
-      <nav>
-        <span class="nav-btn btn"><img src="src/assets/icons/landing-page/Home.svg" alt="">Home</span>
-        <span class="nav-btn btn"><img src="src/assets/icons/landing-page/Class.svg" alt="">Class</span>
-        <span class="nav-btn btn"><img src="src/assets/icons/landing-page/Advantage.svg" alt="">Advantage</span>
-        <span class="nav-btn btn"><img src="src/assets/icons/landing-page/Collaborators.svg" alt="">Collaborators</span>
-      </nav>
-      <div class="header-cta">
-        <span class="cta-btn btn">Sign Up</span>
-        <span class="cta-btn btn main-btn">Sign In</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="src/css/landing.css" />
+  <link rel="stylesheet" href="src/css/root.css" />
+  <link href="https://fonts.cdnfonts.com/css/lufga" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <span class="koursian">
+      <img src="src/assets/icons/Logo.svg"></img>
+      <p>Koursian</p>
+    </span>
+    <nav>
+      <span class="nav-btn btn">
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="#929295"
+            d="M13.106 22h-2.212c-3.447 0-5.17 0-6.345-1.012s-1.419-2.705-1.906-6.093l-.279-1.937c-.38-2.637-.57-3.956-.029-5.083s1.691-1.813 3.992-3.183l1.385-.825C9.8 2.622 10.846 2 12 2s2.199.622 4.288 1.867l1.385.825c2.3 1.37 3.451 2.056 3.992 3.183s.35 2.446-.03 5.083l-.278 1.937c-.487 3.388-.731 5.081-1.906 6.093S16.553 22 13.106 22"
+            opacity="0.5" />
+          <path fill="#929295" d="M8.25 18a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75" />
+        </svg>Home</span>
+      <span class="nav-btn btn">
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="#929295"
+            d="M12 20.028V18H8v2.028c0 .277 0 .416.095.472s.224-.006.484-.13l1.242-.593c.088-.042.132-.063.179-.063s.091.02.179.063l1.242.593c.26.124.39.186.484.13c.095-.056.095-.195.095-.472"
+            opacity="0.5" />
+          <path fill="#929295"
+            d="M8 18h-.574c-1.084 0-1.462.006-1.753.068c-.513.11-.96.347-1.285.667c-.11.108-.164.161-.291.505s-.107.489-.066.78l.022.15c.11.653.31.998.616 1.244c.307.246.737.407 1.55.494c.837.09 1.946.092 3.536.092h4.43c1.59 0 2.7-.001 3.536-.092c.813-.087 1.243-.248 1.55-.494s.506-.591.616-1.243c.091-.548.11-1.241.113-2.171h-8v2.028c0 .277 0 .416-.095.472s-.224-.006-.484-.13l-1.242-.593c-.088-.042-.132-.063-.179-.063s-.091.02-.179.063l-1.242.593c-.26.124-.39.186-.484.13C8 20.444 8 20.305 8 20.028z" />
+          <path fill="#929295"
+            d="M4.727 2.733c.306-.308.734-.508 1.544-.618C7.105 2.002 8.209 2 9.793 2h4.414c1.584 0 2.688.002 3.522.115c.81.11 1.238.31 1.544.618c.305.308.504.74.613 1.557c.112.84.114 1.955.114 3.552V18H7.426c-1.084 0-1.462.006-1.753.068c-.513.11-.96.347-1.285.667c-.11.108-.164.161-.291.505A1.3 1.3 0 0 0 4 19.7V7.842c0-1.597.002-2.711.114-3.552c.109-.816.308-1.249.613-1.557"
+            opacity="0.5" />
+          <path fill="#929295"
+            d="M7.25 7A.75.75 0 0 1 8 6.25h8a.75.75 0 0 1 0 1.5H8A.75.75 0 0 1 7.25 7M8 9.75a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5z" />
+        </svg>Class</span>
+      <span class="nav-btn btn">
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="#929295" fill-rule="evenodd"
+            d="M2.25 6A.75.75 0 0 1 3 5.25h18a.75.75 0 0 1 0 1.5H3A.75.75 0 0 1 2.25 6m0 4A.75.75 0 0 1 3 9.25h18a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75m0 4a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75m0 4a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5H3a.75.75 0 0 1-.75-.75"
+            clip-rule="evenodd" opacity="0.5" />
+          <path fill="#929295"
+            d="M16.97 13.47a.75.75 0 0 1 1.06 0l2.5 2.5a.75.75 0 1 1-1.06 1.06l-1.22-1.22V20a.75.75 0 0 1-1.5 0v-4.19l-1.22 1.22a.75.75 0 1 1-1.06-1.06z" />
+        </svg>Advantage</span>
+      <span class="nav-btn btn">
+        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="#929295" d="M15.5 7.5a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0" />
+          <path fill="#929295"
+            d="M19.5 7.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0m-15 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 0 0-5 0" opacity="0.4" />
+          <path fill="#929295" d="M18 16.5c0 1.933-2.686 3.5-6 3.5s-6-1.567-6-3.5S8.686 13 12 13s6 1.567 6 3.5" />
+          <path fill="#929295"
+            d="M22 16.5c0 1.38-1.79 2.5-4 2.5s-4-1.12-4-2.5s1.79-2.5 4-2.5s4 1.12 4 2.5m-20 0C2 17.88 3.79 19 6 19s4-1.12 4-2.5S8.21 14 6 14s-4 1.12-4 2.5"
+            opacity="0.4" />
+        </svg>Collaborators</span>
+    </nav>
+    <div class="header-cta">
+      <span class="cta-btn btn">Sign Up</span>
+      <span class="cta-btn btn main-btn">Sign In</span>
+    </div>
+  </header>
+  <section class="hero-section">
+    <img src="src/assets/icons/landing-page/wave.svg" alt="" width="180">
+    <div class="title-description-btn">
+      <h1 class="jumbotext hero-jumbo">The <span style="color: var(--color-secondary)">future</span> belongs to those
+        who keep <span style="color: var(--color-primary)">learning</span></h1>
+      <p class="description hero-description">Every skill you gain brings new opportunities and pushes you closer to
+        your goals. Start today with Koursian</p>
+      <span class="cta-btn btn hero-btn">Get Started</span>
+    </div>
+  </section>
+  <section class="mentors-stats">
+    <div class="mentors-label">Meet Future Mentor</div>
+    <div class="mentors">
+      <img src="src/assets/image/Mentor-Image-1.svg" alt="">
+      <img src="src/assets/image/Mentor-Image-2.svg" alt="">
+      <img src="src/assets/image/Mentor-Image-3.svg" alt="">
+      <img src="src/assets/image/Mentor-Image-4.svg" alt="">
+      <img src="src/assets/image/Mentor-Image-5.svg" alt="">
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <h1 class="stat-hero hero_text">10+</h1>
+        <p class="stat-description description">Years of service</p>
       </div>
-    </header>
-    <section class="hero-section">
-        <img src="src/assets/icons/landing-page/wave.svg" alt="" width="180">
-        <div class="title-description-btn">
-            <h1 class="jumbotext hero-jumbo">The <span style="color: var(--color-secondary)">future</span> belongs to those who keep <span style="color: var(--color-primary)">learning</span></h1>
-            <p class="description hero-description">Every skill you gain brings new opportunities and pushes you closer to your goals. Start today with Koursian</p>
-            <span class="cta-btn btn hero-btn">Get Started</span>
-        </div>
-    </section>
-    <section class="mentors-stats">
-        <div class="mentors">
-            <img src="src/assets/image/Mentor-Image-1.svg" alt="">
-            <img src="src/assets/image/Mentor-Image-2.svg" alt="">
-            <img src="src/assets/image/Mentor-Image-3.svg" alt="">
-            <img src="src/assets/image/Mentor-Image-4.svg" alt="">
-            <img src="src/assets/image/Mentor-Image-5.svg" alt="">
-        </div>
-        <div class="stats"></div>
-    </section>
-  </body>
+      <div class="stat">
+        <h1 class="stat-hero hero_text">200M+</h1>
+        <p class="stat-description description">Students</p>
+      </div>
+      <div class="stat">
+        <h1 class="stat-hero hero_text">40</h1>
+        <p class="stat-description description">School Integrated</p>
+      </div>
+      <div class="stat">
+        <h1 class="stat-hero hero_text">500</h1>
+        <p class="stat-description description">Mentors</p>
+      </div>
+      <div class="stat">
+        <h1 class="stat-hero hero_text">700+</h1>
+        <p class="stat-description description">Courses</p>
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>
