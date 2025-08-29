@@ -1,0 +1,152 @@
+* {
+    font-family: 'Lufga', sans-serif;
+    font-weight: var(--fw-title);
+    cursor: default;
+}
+
+section, header {
+    margin: 48px 120px;
+}
+
+.koursian {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-sm);
+    font-size: var(--fs-heading);
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    height: fit-content;
+    display: flex;
+    gap: var(--gap-sm);
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-sm);
+    margin-top: var(--gap-xl);
+}
+
+.title-description-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-sm);
+}
+
+.mentors-stats {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.mentors {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-lg);
+}
+
+/* Button Style */
+
+.btn {
+    width: 147px;
+    max-height: 28px;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-sm);
+
+    border: 1px solid #e6e6e6;
+    border-radius: var(--radius-pill);
+    color: var(--color-text-muted);
+
+    transition: var(--transition);
+}
+
+
+.nav-btn img {
+    transition: var(--transition);
+    opacity: .5;
+}
+
+.nav-btn:hover {
+    color: var(--color-primary);
+    opacity: 1;
+    border: 1px solid var(--color-primary-light);
+    background-color: var(--color-primary-light);
+}
+
+.nav-btn:hover > img {
+    opacity: 1;
+}
+
+.header-cta {
+    display: flex;
+    gap: var(--gap-sm);
+}
+
+
+.main-btn:hover {
+    background-color: var(--color-primary);
+    /* color: var(--color-white); */
+    color: white;
+}
+
+.cta-btn {
+    height: 60px;
+}
+
+.cta-btn:nth-child(1) {
+    border: none;
+    width: fit-content;
+}
+.cta-btn:nth-child(2) {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.hero-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Button Style */
+
+
+/* Text Style */
+.jumbotext {
+    font-size: var(--fs-jumbo);
+    text-align: center;
+    margin: 0;
+}
+
+.description {
+    opacity: .5;
+}
+
+.hero-jumbo {
+    width: 60vw;
+}
+
+.hero-description {
+    width: 50%;
+    text-align: center;
+}
+
+

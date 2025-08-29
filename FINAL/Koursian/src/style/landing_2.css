@@ -1,0 +1,198 @@
+@import url('https://fonts.cdnfonts.com/css/lufga');
+
+@font-face {
+  font-family: 'Lufga';
+  src: url('/Koursian/src/assets/font/lufga-cdnfonts/LufgaRegular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lufga';
+  src: url('/Koursian/src/assets/font/lufga-cdnfonts/LufgaSemiBold.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lufga';
+  src: url('/Koursian/src/assets/font/lufga-cdnfonts/LufgaMedium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+
+* {
+  font-family: 'lufga', sans-serif;
+}
+
+body {
+  background-color: #fff;
+}
+
+.bootcamps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 40px 20px;
+}
+
+.bootcamps-description {
+  display: flex;
+}
+
+.bootcamps-title {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+}
+
+.class {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 120px 240px;
+
+}
+
+.class h1 {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.class p {
+  opacity: 60%;
+  color: #25252B;
+  line-height: normal;
+}
+
+.bootcamps-CTA {
+  display: flex;
+}
+
+
+.bootcamps-button {
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 64px;
+  color: #704FE6;
+  border: 2px solid #704FE6;
+}
+
+.purple {
+  color: #704FE6;
+}
+
+.container-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.description-button {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.bootcamp-item:nth-child(1):hover {
+  background: #FFD25D;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bootcamp-item:nth-child(2):hover {
+  background: #704FE6;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bootcamp-item:nth-child(3):hover {
+  background: #FFD25D;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bootcamp-item:nth-child(4):hover {
+  background: #704FE6;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bootcamp-item:nth-child(5):hover {
+  background: #FFD25D;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bootcamp-item:nth-child(6):hover {
+  background: #704FE6;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bootcamp-item:nth-child(7):hover {
+  background: #FFD25D;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bootcamp-item:nth-child(8):hover {
+  background-color: #704FE6;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.purple {
+  color: #704FE6;
+}
+
+.mapel_icon {
+  width: 64px;
+  height: 64px;
+}
+
+.title-courses {
+  font-size: 24px ;
+  font-weight: bold;
+}
+
+.bootcamp-item {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-right: 1px solid #704FE6;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 400px;
+}
+
+.bootcamp-item:nth-child(2) {
+  background-color: #704FE6;
+}
+.bootcamp-item:nth-child(3) {
+  border-right: 1px solid #FFD25D;
+}
+.bootcamp-item:nth-child(7) {
+  border-right: 1px solid  #FFD25D;
+  background-color: #FFD25D;
+}
+
+.bootcamps-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}

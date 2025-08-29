@@ -1,15 +1,17 @@
 :root {
     --color-primary: #704FE6;
     --color-primary-hover: #6146c4;
+    --color-primary-light:#DEC8FE;
     --color-secondary: #FFD25D;
     --color-warning: #ef4444;
     --color-success: #22c55e;
     --color-text: #25252B;
-    --color-text-muted: rgba(37, 37, 43, 0.6);
+    --color-text-muted: #929295;
     --color-input-bg: #f4f4f4;
     --color-input-border: #e6e6e6;
     --color-white: #fff;
 
+    --fs-jumbo: 96px;
     --fs-hero: 64px;
     --fs-title: 32px;
     --fs-heading: 24px;

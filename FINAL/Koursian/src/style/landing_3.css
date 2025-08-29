@@ -1,0 +1,75 @@
+ @import url('https://fonts.cdnfonts.com/css/lufga');
+   
+   @font-face {
+        font-family: 'Lufga';
+        src: url('/Koursian/src/assets/font/lufga-cdnfonts/LufgaRegular.ttf') format('ttf');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Lufga';
+        src: url('/Koursian/src/assets/font/lufga-cdnfonts/LufgaSemiBold.ttf') format('ttf');
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Lufga';
+        src: url('/Koursian/src/assets/font/lufga-cdnfonts/LufgaMedium.ttf') format('ttf');
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    * {
+        font-family: 'Lufga', sans-serif;
+        color: #25252b;
+    }
+
+    .body {
+        width: 100vw;
+    }
+
+    .hero-text {
+        display: flex;
+        text-align: left;
+        font-size: 64px;
+        padding: 120px 240px;
+    }
+
+    .yellow {
+        color: #FFD25D;
+    }
+
+    .description-text {
+        display: flex;
+        font-size: 16px;
+        opacity: 60%;
+    }
+
+    .heroCTA {
+        display: flex;
+        font-size: 16px;
+        align-items: center;
+        gap: 8px;
+        background-color: #704FE6;
+        border: 1px solid #704FE6;
+        color: #fff;
+        border-radius: 64px;
+        padding: 16px 24px;
+    }
+
+    .CTA-button {
+        display: flex;
+        margin-top: 24px;
+    }
+
+    .dashboard_image {
+        display: flex;
+        justify-content: flex-end; 
+        width: 1440px;
+        height: 848px;
+    }
+
+
+
