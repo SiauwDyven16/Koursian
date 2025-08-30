@@ -10,6 +10,7 @@ html {
 }
 
 body {
+    color: var(--color-text);
     overflow-x: hidden;
     margin: 0;
 }
@@ -17,6 +18,136 @@ body {
 section, header {
     margin: 64px 120px 80px 120px;
 }
+
+/* Button Style */
+
+.btn {
+    width: 147px;
+    max-height: 28px;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-sm);
+
+    border: 1px solid #e6e6e6;
+    border-radius: var(--radius-pill);
+    color: var(--color-text-muted);
+
+    transition: var(--transition);
+}
+
+.nav-btn {
+    background-color: var(--color-white);
+}
+
+.nav-btn:hover {
+    color: var(--color-primary);
+    opacity: 1;
+    border: 1px solid var(--color-primary-light);
+    background-color: var(--color-primary-light);
+}
+
+.nav-btn:hover > .nav-icon path {
+    fill: var(--color-primary);
+}
+
+.header-cta {
+    position: fixed;
+    z-index: 999;
+    right: 120px;
+    display: flex;
+    gap: var(--gap-sm);
+}
+
+
+.cta-btn {
+    height: 60px;
+}
+
+.cta-btn:nth-child(1) {
+    border: none;
+    width: fit-content;
+}
+
+.cta-btn:nth-child(1):hover {
+    color: var(--color-text);
+    border: none;
+    width: fit-content;
+}
+
+.cta-btn:nth-child(2) {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.cta-btn:nth-child(2):hover {
+    background-color: var(--color-primary);
+    /* color: var(--color-white); */
+    color: var(--color-white);
+}
+
+.hero-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* 
+.hero-btn:hover {
+    width: 250px;
+    gap: var(--gap-md);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+} */
+
+/* Button Style */
+
+
+/* Text Style */
+.jumbotext {
+    font-size: var(--fs-jumbo);
+    font-weight: var(--fw-title);
+    text-align: center;
+    margin: 0;
+}
+
+.hero_text {
+    font-size: var(--fs-hero);
+    font-weight: var(--fw-hero);
+    margin: 0;
+}
+
+
+.description {
+    opacity: .5;
+    margin: 0;
+}
+
+.hero-jumbo {
+    width: 60vw;
+}
+
+.hero-description {
+    width: 50%;
+    text-align: center;
+}
+
+/* Icon Style */
+
+.nav-icon {
+    width: 28px;
+    height: 28px;
+    transition: var(--transition);
+    color: var(--color-text-muted);    
+}
+
+.arrow-primary {
+    width: 28px;    
+    height: 28px;    
+    fill: var(--color-primary);
+}
+
 
 /* Header */
 
@@ -69,7 +200,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--gap-sm);
+    gap: var(--gap-md);
 }
 
 /* Hero Section */
@@ -134,110 +265,22 @@ nav {
 /* Stats Section */
 
 
-/* Button Style */
+/* Class Section */
 
-.btn {
-    width: 147px;
-    max-height: 28px;
-    padding: 16px 24px;
+.herotext-description {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--gap-sm);
-
-    border: 1px solid #e6e6e6;
-    border-radius: var(--radius-pill);
-    color: var(--color-text-muted);
-
-    transition: var(--transition);
 }
 
-.nav-btn {
-    background-color: var(--color-white);
-}
-
-.nav-btn:hover {
-    color: var(--color-primary);
-    opacity: 1;
-    border: 1px solid var(--color-primary-light);
-    background-color: var(--color-primary-light);
-}
-
-.nav-btn:hover > .nav-icon path {
-    fill: var(--color-primary);
-}
-
-.header-cta {
-    position: fixed;
-    z-index: 999;
-    right: 120px;
+.herotext {
     display: flex;
-    gap: var(--gap-sm);
+    flex-direction: column;
+    gap: var(--gap-md);
 }
 
-
-.main-btn:hover {
-    background-color: var(--color-primary);
-    /* color: var(--color-white); */
-    color: white;
+.herotext img {
+    width: 179px;
+    height: 33px;
 }
 
-.cta-btn {
-    height: 60px;
-}
-
-.cta-btn:nth-child(1) {
-    border: none;
-    width: fit-content;
-}
-.cta-btn:nth-child(2) {
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-}
-
-.hero-btn {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-}
-
-/* Button Style */
-
-
-/* Text Style */
-.jumbotext {
-    font-size: var(--fs-jumbo);
-    font-weight: var(--fw-title);
-    text-align: center;
-    margin: 0;
-}
-
-.hero_text {
-    font-size: var(--fs-hero);
-    font-weight: var(--fw-hero);
-    margin: 0;
-}
-
-.description {
-    opacity: .5;
-    margin: 0;
-}
-
-.hero-jumbo {
-    width: 60vw;
-}
-
-.hero-description {
-    width: 50%;
-    text-align: center;
-}
-
-/* Icon Style */
-
-.nav-icon {
-    width: 28px;
-    height: 28px;
-    transition: var(--transition);
-    color: var(--color-text-muted);    
-}
-
+/* Class Section */
 
